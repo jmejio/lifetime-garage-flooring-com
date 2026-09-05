@@ -7,6 +7,33 @@
   --bs-link-hover-color-rgb: 47, 168, 224;
 }
 
+/* Prevent the page from panning/scrolling sideways on mobile if any
+   element momentarily runs wider than the viewport (e.g. a non-wrapping
+   nav row or an unloaded image before it gets sized). */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Nav rows use flex-nowrap; let flex items shrink instead of forcing the
+   row (and page) wider than the viewport. */
+.navbar > .container,
+.navbar-brand {
+  min-width: 0;
+}
+
+.navbar-brand span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text-gold {
   color: #b8860b;
 }
@@ -17,7 +44,13 @@
 }
 
 .brand-logo {
-  height: 80px;
+  height: 72px;
+}
+
+@media (min-width: 576px) {
+  .brand-logo {
+    height: 88px;
+  }
 }
 
 @media (min-width: 768px) {
