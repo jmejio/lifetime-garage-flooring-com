@@ -12,75 +12,98 @@
 </head>
 <body>
 
-  <header class="sticky-top bg-white shadow-sm">
+  <header class="sticky-top bg-white shadow-sm border-bottom">
+    <div class="container py-2">
+      <div class="row align-items-center gy-2">
 
-    <!-- Top bar: logo + call-to-action -->
-    <nav class="navbar flex-nowrap bg-white py-2 border-bottom">
-      <div class="container">
-        <a href="#top" class="navbar-brand d-flex align-items-center mb-0">
-          <img src="assets/logo-with-hero.png" alt="Lifetime Garage Flooring logo" class="brand-logo me-2"
-               onerror="this.style.display='none'; document.getElementById('brandFallback').classList.remove('d-none');">
-          <span id="brandFallback" class="fw-bold d-none">Lifetime Garage Flooring</span>
-        </a>
-
-        <span class="d-none d-xl-inline-flex align-items-center text-gold fw-semibold small text-center mx-3" style="max-width:340px;">
-          <i class="bi bi-heart-fill me-2"></i>We offer discounts for Seniors, First Responders, Teachers, and Persons with Disabilities
-        </span>
-
-        <div class="d-flex align-items-center gap-1 gap-sm-2">
-          <a class="btn btn-outline-primary btn-sm" href="tel:+18132134050" aria-label="Call (813) 213-4050">
-            <i class="bi bi-telephone-fill"></i>
-            <span class="d-none d-sm-inline ms-1">(813) 213-4050</span>
+        <!-- Left column: logo -->
+        <div class="col-auto">
+          <a href="#top" class="navbar-brand d-flex align-items-center mb-0">
+            <img src="assets/logo-with-hero.png" alt="Lifetime Garage Flooring logo" class="brand-logo me-2"
+                 onerror="this.style.display='none'; document.getElementById('brandFallback').classList.remove('d-none');">
+            <span id="brandFallback" class="fw-bold d-none">Lifetime Garage Flooring</span>
           </a>
-          <a class="btn btn-primary btn-sm d-none d-md-inline-flex align-items-center" href="#contact">
-            Get a Free Quote
-          </a>
-
-          <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-                  aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
         </div>
-      </div>
-    </nav>
 
-    <!-- Second row: horizontal navigation menu -->
-    <nav class="navbar navbar-expand-md bg-light">
-      <div class="container">
-        <div class="collapse navbar-collapse justify-content-center" id="navMenu">
-          <ul class="navbar-nav gap-md-4 py-2">
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="btn btn-primary btn-sm" href="#contact">Free Estimate</a></li>
-          </ul>
+        <!-- Center column: tagline -->
+        <div class="col d-flex justify-content-center align-items-center px-2">
+          <span class="d-none d-xl-inline-flex align-items-center text-gold fw-semibold small text-center" style="max-width:340px;">
+            <i class="bi bi-heart-fill me-2"></i>We offer discounts for Seniors, First Responders, Teachers, and Persons with Disabilities
+          </span>
         </div>
-      </div>
-    </nav>
 
+        <!-- Right column: call-to-action buttons + navigation menu -->
+        <div class="col-auto">
+          <div class="d-flex flex-column align-items-end gap-2">
+            <div class="d-flex align-items-center gap-1 gap-sm-2">
+              <a class="btn btn-outline-primary btn-sm" href="tel:+18132134050" aria-label="Call (813) 213-4050">
+                <i class="bi bi-telephone-fill"></i>
+                <span class="d-none d-sm-inline ms-1">(813) 213-4050</span>
+              </a>
+              <a class="btn btn-primary btn-sm d-none d-md-inline-flex align-items-center" href="#contact">
+                Get a Free Quote
+              </a>
+
+              <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                      aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+            <nav class="navbar navbar-expand-md p-0">
+              <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                <ul class="navbar-nav gap-md-3 align-items-end align-items-md-center">
+                  <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                  <li class="nav-item d-md-none"><a class="btn btn-primary btn-sm" href="#contact">Free Estimate</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </header>
 
   <main id="top">
 
-    <section class="container text-center py-5" style="max-width:860px;">
-      <img src="assets/logo-hero.png" alt="Lifetime Garage Flooring" class="img-fluid hero-logo mb-4"
-           onerror="this.style.display='none'; document.getElementById('heroFallback').classList.remove('d-none');">
-      <div id="heroFallback" class="fw-bold fs-2 mb-4 d-none">Lifetime Garage Flooring</div>
+    <section class="hero-section d-flex align-items-center">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-eyebrow mb-2">Durable&nbsp;&nbsp;/&nbsp;&nbsp;Beautiful&nbsp;&nbsp;/&nbsp;&nbsp;Built to Last</p>
+          <h1 class="display-4 fw-bold text-white mb-3">Transform Your Garage <br><span class="text-gold-light">Into a Masterpiece</span></h1>
+          <p class="lead hero-subtext mb-4">
+            Get a garage floor that looks amazing, stands up to daily use,
+            and adds lasting value to your home.
+          </p>
 
-      <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coatings Built to Last a Lifetime</h1>
-      <div class="accent-bar mx-auto mb-3"></div>
-      <p class="lead text-muted mx-auto" style="max-width:600px;">
-        We install durable, low-maintenance epoxy and polyaspartic floor
-        coatings for homeowners — transforming ordinary garages into clean,
-        tough, showroom-ready spaces.
-      </p>
+          <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
+            <a class="btn btn-primary btn-lg" href="#contact">
+              Get a Free Estimate<i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a class="btn btn-outline-light btn-lg" href="tel:+18132134050">
+              <i class="bi bi-telephone-fill me-2"></i>Call Now
+            </a>
+          </div>
 
-      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
-        <a class="btn btn-primary btn-lg" href="tel:+18132134050">
-          <i class="bi bi-telephone-fill me-2"></i>Call Now
-        </a>
-        <a class="btn btn-outline-primary btn-lg" href="#contact">Get a Free Quote</a>
+          <div class="d-flex flex-wrap flex-lg-nowrap gap-3 gap-xl-4 hero-badges">
+            <div class="d-flex align-items-center gap-2 text-white text-nowrap">
+              <i class="bi bi-shield-check fs-4 text-gold-light"></i>
+              <span>Durable &amp; Long Lasting</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-white text-nowrap">
+              <i class="bi bi-stars fs-4 text-gold-light"></i>
+              <span>Easy to Clean &amp; Maintain</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-white text-nowrap">
+              <i class="bi bi-house-door-fill fs-4 text-gold-light"></i>
+              <span>Residential &amp; Commercial</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
