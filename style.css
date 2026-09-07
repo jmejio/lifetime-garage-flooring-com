@@ -9,16 +9,18 @@
 
 /* Prevent the page from panning/scrolling sideways on mobile if any
    element momentarily runs wider than the viewport (e.g. a non-wrapping
-   nav row or an unloaded image before it gets sized). */
+   nav row or an unloaded image before it gets sized). Uses overflow-x:
+   clip instead of hidden because hidden forces overflow-y to compute as
+   auto, which breaks position: sticky on the header (notably in iOS
+   Safari). */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100vw;
-  position: relative;
 }
 
 /* Nav rows use flex-nowrap; let flex items shrink instead of forcing the
@@ -71,13 +73,16 @@ body {
   padding: 64px 0;
   background-image:
     linear-gradient(100deg, rgba(8, 12, 22, 0.85) 0%, rgba(8, 12, 22, 0.68) 35%, rgba(8, 12, 22, 0.32) 62%, rgba(8, 12, 22, 0.08) 100%),
-    url("assets/main-photo-garage-epoxy.png");
+    url("assets/main-photo-garage-epoxy-mobile.png");
   background-size: cover;
   background-position: right center;
 }
 
 @media (min-width: 768px) {
   .hero-section {
+    background-image:
+      linear-gradient(100deg, rgba(8, 12, 22, 0.85) 0%, rgba(8, 12, 22, 0.68) 35%, rgba(8, 12, 22, 0.32) 62%, rgba(8, 12, 22, 0.08) 100%),
+      url("assets/main-photo-garage-epoxy.png");
     background-position: center;
   }
 }
