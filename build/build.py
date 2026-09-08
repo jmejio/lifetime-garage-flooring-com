@@ -36,7 +36,7 @@ def render_page(slug, meta):
     rendered = template.render(
         title=meta["title"], description=meta["description"],
         canonical_url=canonical_url, og_image=meta["og_image"],
-        logo_href=logo_href,
+        logo_href=logo_href, site_base_url=SITE_BASE_URL,
     )
     # Jinja always renders with \n; convert to this output's real line ending.
     return rendered.replace("\n", HTML_NEWLINE)
@@ -55,10 +55,16 @@ def build_sitemap(pages):
     return SITEMAP_NEWLINE.join(lines) + SITEMAP_NEWLINE
 
 
+def build_robots():
+    lines = ["User-agent: *", "Allow: /", "", f"Sitemap: {SITE_BASE_URL}/sitemap.xml"]
+    return SITEMAP_NEWLINE.join(lines) + SITEMAP_NEWLINE
+
+
 def main():
     pages = list(load_pages())
     outputs = {f"{slug}.html": render_page(slug, meta) for slug, meta in pages}
     outputs["sitemap.xml"] = build_sitemap(pages)
+    outputs["robots.txt"] = build_robots()
     check = "--check" in sys.argv
     drift = False
     for filename, content in outputs.items():
