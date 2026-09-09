@@ -113,8 +113,27 @@
               <div class="collapse navbar-collapse justify-content-end" id="navMenu">
                 <ul class="navbar-nav gap-md-3 align-items-end align-items-md-center">
                   <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/index.html#services">Services</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/locations/">Locations</a></li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="navServicesDropdown">
+                      <li><a class="dropdown-item" href="/services/concrete-coating/">Concrete Coating</a></li>
+                      <li><a class="dropdown-item" href="/services/epoxy-flooring/">Epoxy Flooring</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navLocationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Locations</a>
+                    <ul class="dropdown-menu" aria-labelledby="navLocationsDropdown">
+                      <li><a class="dropdown-item" href="/locations/lakeland/">Lakeland</a></li>
+                      <li><a class="dropdown-item" href="/locations/lutz/">Lutz</a></li>
+                      <li><a class="dropdown-item" href="/locations/orlando/">Orlando</a></li>
+                      <li><a class="dropdown-item" href="/locations/st-petersburg/">St. Petersburg</a></li>
+                      <li><a class="dropdown-item" href="/locations/tampa/">Tampa</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item fw-semibold" href="/locations/">View All Locations</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/resources/">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="/index.html#why-us">Why Us</a></li>
                   <li class="nav-item"><a class="nav-link" href="/index.html#contact">Contact</a></li>
                   <li class="nav-item d-md-none"><a class="btn btn-primary btn-sm" href="/index.html#contact">Free Estimate</a></li>
@@ -408,6 +427,7 @@
     <div class="accent-bar mx-auto mb-4"></div>
     <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
       <li><a class="btn btn-outline-primary" href="/services/epoxy-flooring/">Epoxy Flooring</a></li>
+      <li><a class="btn btn-outline-primary" href="/resources/epoxy-vs-polyaspartic/">Epoxy vs. Polyaspartic: Which Is Right for You?</a></li>
     </ul>
   </div>
 </section>
@@ -419,6 +439,38 @@
 
   <footer class="bg-dark text-white py-5">
     <div class="container">
+      <div class="row g-4 text-center mb-5">
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">Services</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/services/concrete-coating/">Concrete Coating</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/services/epoxy-flooring/">Epoxy Flooring</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">Locations</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/locations/lakeland/">Lakeland</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/locations/lutz/">Lutz</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/locations/orlando/">Orlando</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/locations/st-petersburg/">St. Petersburg</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/locations/tampa/">Tampa</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">More</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/projects/">Projects</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="row g-4 text-center">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
           <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:190px; height:190px;">

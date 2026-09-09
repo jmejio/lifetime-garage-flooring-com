@@ -26,7 +26,8 @@ env = Environment(
 # build/pages/<slug>.json schema:
 #   title, description, canonical_path, og_image, is_home,
 #   sitemap_priority, sitemap_changefreq  (original fields)
-#   page_type          "home" | "service" | "location" | "resource" | "project" | "static"
+#   page_type          "home" | "service" | "location" | "resource" | "project" |
+#                       "project-index" | "static"
 #   primary_keyword    str   — reasoned SEO target, not measured search-volume data
 #   secondary_keywords list[str]
 #   schema_type        str | null — extra_schema JSON-LD @type for this page (e.g. "Service",
@@ -36,6 +37,9 @@ env = Environment(
 #                       canonical_path segments instead of listing explicitly
 #   related_services   list[str] — slugs into build/pages/
 #   related_locations  list[str] — slugs into build/pages/
+#   nav_label          str | omitted — short display text for nav dropdowns/footer link
+#                       columns (e.g. "Lutz" instead of the full page title); falls back to
+#                       the title's pre-" | " segment when omitted
 # Project pages (page_type: "project") additionally carry: location, service,
 # square_footage, scope_summary.
 def load_pages():
@@ -50,6 +54,9 @@ def build_pages_lookup(pages):
         slug: {
             "title": meta["title"], "canonical_path": meta["canonical_path"],
             "page_type": meta["page_type"], "description": meta["description"],
+            "location": meta.get("location"), "service": meta.get("service"),
+            "square_footage": meta.get("square_footage"), "scope_summary": meta.get("scope_summary"),
+            "nav_label": meta.get("nav_label") or meta["title"].split(" | ")[0],
         }
         for slug, meta in pages
     }

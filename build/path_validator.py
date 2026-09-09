@@ -8,9 +8,8 @@ in issue 001: a page that slips back to a page-relative path (e.g.
 rendered below the repo root, and this module is what catches that during
 `build.py --check`.
 
-Runs standalone (`python build/path_validator.py`) against the fixture
-strings below, or importable via `validate`/`validate_outputs` for use from
-another script.
+Importable via `validate`/`validate_outputs` — pass any HTML string to
+`validate()` to check it in isolation, independent of the full build.
 """
 import re
 
@@ -52,35 +51,3 @@ def validate_outputs(outputs):
         if not ok:
             failures[filename] = offenders
     return failures
-
-
-# --- TEMPORARY fixtures (issue 006) -----------------------------------------
-# Prove the validator catches a broken relative path and passes a correct
-# root-relative one. Remove this block (see issues/019) once real pages
-# exercise the same validation paths.
-_FIXTURE_BAD_HTML = '<img src="assets/foo.jpg" alt="broken">'
-_FIXTURE_GOOD_HTML = """
-<a href="/about.html">About</a>
-<a href="#contact">Contact</a>
-<a href="https://example.com">External</a>
-<a href="tel:+18132134050">Call</a>
-<a href="mailto:info@example.com">Email</a>
-<img src="/assets/foo.jpg" alt="ok">
-"""
-
-
-def _run_fixture_self_test():
-    ok_bad, offenders_bad = validate(_FIXTURE_BAD_HTML)
-    assert not ok_bad and offenders_bad == ["assets/foo.jpg"], (
-        f"expected the bad fixture to be flagged, got offenders={offenders_bad}"
-    )
-    ok_good, offenders_good = validate(_FIXTURE_GOOD_HTML)
-    assert ok_good and offenders_good == [], (
-        f"expected the good fixture to pass clean, got offenders={offenders_good}"
-    )
-    print("path_validator self-test OK: bad fixture flagged, good fixture passed clean.")
-# --- end TEMPORARY fixtures --------------------------------------------------
-
-
-if __name__ == "__main__":
-    _run_fixture_self_test()

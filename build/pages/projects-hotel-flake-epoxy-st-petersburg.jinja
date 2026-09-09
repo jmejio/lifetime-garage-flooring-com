@@ -1,0 +1,93 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ "Flake Epoxy Flooring with Integrated Cove Base in St. Petersburg, FL" | tojson }},
+  "description": {{ description | tojson }},
+  "image": "{{ og_image }}",
+  "datePublished": "2026-09-08",
+  "author": {
+    "@type": "Organization",
+    "name": "Lifetime Garage Flooring"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lifetime Garage Flooring",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site_base_url }}/assets/logo-with-hero.png"
+    }
+  },
+  "mainEntityOfPage": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-9">
+          <h1 class="display-5 fw-bold text-primary mb-3">Flake Epoxy Flooring with Integrated Cove Base</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Location: St. Petersburg, FL &nbsp;|&nbsp; Scope: 1,500 sq ft &nbsp;|&nbsp;
+            System: Flake Epoxy with Integrated Cove Base
+          </p>
+          <p class="text-muted">
+            This large, high-traffic kitchen space needed a flooring system
+            that could stand up to constant foot traffic and frequent
+            cleaning, while meeting strict hygiene requirements. We installed
+            a heavy-duty flake epoxy system across 1,500 sq ft, with an
+            integrated cove base carrying the coating up the wall a few
+            inches at every floor-wall junction — eliminating hard corners
+            where dirt and moisture could otherwise collect, for a seamless,
+            easy-to-clean surface.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO: replace these placeholder images with real before/after project photos once available -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <h2 class="fw-bold text-center">Before &amp; After</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+          <div class="col text-center">
+            <img src="/assets/placeholder-project-photo.jpg" class="img-fluid rounded shadow-sm mb-2" alt="Project photo coming soon" width="600" height="400" loading="lazy">
+            <p class="fw-semibold text-muted mb-0">Before</p>
+          </div>
+          <div class="col text-center">
+            <img src="/assets/placeholder-project-photo.jpg" class="img-fluid rounded shadow-sm mb-2" alt="Project photo coming soon" width="600" height="400" loading="lazy">
+            <p class="fw-semibold text-muted mb-0">After</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container" style="max-width:700px;">
+        {{ components.testimonial_quote(
+          "LGF provided an excellent service, we are very happy with the results.",
+          "St. Petersburg Client"
+        ) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Ready for Floors Built to Last?", "#contact") }}
+
+    {{ components.related_links("Learn More", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring Services"},
+      {"href": "/locations/st-petersburg/", "label": "St. Petersburg Location"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

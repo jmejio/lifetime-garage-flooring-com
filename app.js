@@ -6,7 +6,7 @@ const navToggle = document.querySelector('[data-bs-target="#navMenu"]');
 if (navMenu && navToggle) {
   const navCollapse = bootstrap.Collapse.getOrCreateInstance(navMenu, { toggle: false });
 
-  navMenu.querySelectorAll('.nav-link, .btn').forEach((link) => {
+  navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn').forEach((link) => {
     link.addEventListener('click', () => navCollapse.hide());
   });
 

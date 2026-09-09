@@ -1,0 +1,20 @@
+{
+  "title": "Epoxy vs. Polyaspartic Garage Floor Coating | Lifetime Garage Flooring",
+  "description": "Comparing epoxy and polyaspartic garage floor coatings on durability, cure time, cost, and appearance, so you can choose the right system for your garage.",
+  "canonical_path": "/resources/epoxy-vs-polyaspartic/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/epoxy-coating.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.7,
+  "sitemap_changefreq": "monthly",
+  "page_type": "resource",
+  "primary_keyword": "epoxy vs polyaspartic garage floor",
+  "secondary_keywords": ["epoxy vs polyaspartic", "polyaspartic vs epoxy garage floor", "best garage floor coating"],
+  "schema_type": "Article",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Resources", "path": "/resources/"},
+    {"label": "Epoxy vs. Polyaspartic", "path": "/resources/epoxy-vs-polyaspartic/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}

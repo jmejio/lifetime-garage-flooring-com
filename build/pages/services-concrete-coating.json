@@ -10,6 +10,7 @@
   "primary_keyword": "concrete coating",
   "secondary_keywords": ["polyaspartic garage floor coating", "polyaspartic concrete coating", "concrete coating Tampa Bay"],
   "schema_type": "Service",
+  "nav_label": "Concrete Coating",
   "breadcrumbs": [
     {"label": "Home", "path": "/"},
     {"label": "Services", "path": "/index.html#services"},

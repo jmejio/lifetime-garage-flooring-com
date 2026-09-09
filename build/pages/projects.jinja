@@ -1,0 +1,49 @@
+{% extends "base.jinja" %}
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Our Projects</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Real garage floor coating projects completed for homeowners across
+            the Tampa Bay area. Browse recent work below.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5">
+      <div class="container">
+        {% set ns = namespace(count=0) %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 text-start">
+          {% for slug, page in pages.items() | sort if page.page_type == "project" %}
+          {% set ns.count = ns.count + 1 %}
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 card-title text-primary">{{ page.title.split(" | ")[0] }}</h2>
+                <ul class="list-unstyled small text-muted mb-3">
+                  <li><i class="bi bi-geo-alt-fill text-gold me-1"></i>{{ page.location }}</li>
+                  <li><i class="bi bi-tools text-gold me-1"></i>{{ page.service }}</li>
+                  <li><i class="bi bi-rulers text-gold me-1"></i>{{ page.square_footage }} sq ft</li>
+                </ul>
+                <p class="card-text text-muted">{{ page.scope_summary }}</p>
+                <a href="{{ page.canonical_path }}" class="small fw-semibold">View Project <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% if ns.count == 0 %}
+        <div class="text-center text-muted py-4">
+          <p class="mb-0">We're adding real project case studies soon. Check back shortly, or request a free estimate to start yours today.</p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+  </main>
+{% endblock %}

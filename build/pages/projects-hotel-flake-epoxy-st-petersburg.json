@@ -1,0 +1,24 @@
+{
+  "title": "Flake Epoxy Flooring with Integrated Cove Base in St. Petersburg, FL | Lifetime Garage Flooring",
+  "description": "See how Lifetime Garage Flooring installed a durable flake epoxy floor with an integrated cove base across 1,500 sq ft in St. Petersburg, FL.",
+  "canonical_path": "/projects/hotel-flake-epoxy-st-petersburg/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/placeholder-project-photo.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.7,
+  "sitemap_changefreq": "monthly",
+  "page_type": "project",
+  "primary_keyword": "flake epoxy flooring St. Petersburg FL",
+  "secondary_keywords": ["epoxy cove base flooring", "flake epoxy installation Florida"],
+  "schema_type": "Article",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Projects", "path": "/projects/"},
+    {"label": "St. Petersburg Flake Epoxy Project", "path": "/projects/hotel-flake-epoxy-st-petersburg/"}
+  ],
+  "related_services": ["services-epoxy-flooring"],
+  "related_locations": ["locations-st-petersburg"],
+  "location": "St. Petersburg, FL",
+  "service": "Flake Epoxy with Cove Base",
+  "square_footage": "1,500",
+  "scope_summary": "Installed a durable flake epoxy system with an integrated cove base across 1,500 sq ft of high-traffic kitchen flooring."
+}

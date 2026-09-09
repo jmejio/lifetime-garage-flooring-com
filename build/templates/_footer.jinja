@@ -1,5 +1,36 @@
   <footer class="bg-dark text-white py-5">
     <div class="container">
+      <div class="row g-4 text-center mb-5">
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">Services</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            {% for slug, page in pages.items() | sort if page.page_type == "service" %}
+            <li class="mb-1"><a class="link-light text-decoration-none" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">Locations</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            {% for slug, page in pages.items() | sort if page.page_type == "location" %}
+            <li class="mb-1"><a class="link-light text-decoration-none" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="h5 fw-bold">More</h2>
+          <div class="accent-bar mx-auto mb-3"></div>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/projects/">Projects</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none" href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="row g-4 text-center">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
           <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:190px; height:190px;">

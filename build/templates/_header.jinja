@@ -40,8 +40,26 @@
               <div class="collapse navbar-collapse justify-content-end" id="navMenu">
                 <ul class="navbar-nav gap-md-3 align-items-end align-items-md-center">
                   <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/index.html#services">Services</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/locations/">Locations</a></li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="navServicesDropdown">
+                      {% for slug, page in pages.items() | sort if page.page_type == "service" %}
+                      <li><a class="dropdown-item" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navLocationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Locations</a>
+                    <ul class="dropdown-menu" aria-labelledby="navLocationsDropdown">
+                      {% for slug, page in pages.items() | sort if page.page_type == "location" %}
+                      <li><a class="dropdown-item" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+                      {% endfor %}
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item fw-semibold" href="/locations/">View All Locations</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/resources/">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="/index.html#why-us">Why Us</a></li>
                   <li class="nav-item"><a class="nav-link" href="/index.html#contact">Contact</a></li>
                   <li class="nav-item d-md-none"><a class="btn btn-primary btn-sm" href="/index.html#contact">Free Estimate</a></li>
