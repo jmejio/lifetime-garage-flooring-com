@@ -1,0 +1,82 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lifetime Garage Flooring - Lakeland, FL",
+  "image": "{{ og_image }}",
+  "telephone": "+18132134050",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21107 Leonard Dr.",
+    "addressLocality": "Lutz",
+    "addressRegion": "FL",
+    "postalCode": "33558",
+    "addressCountry": "US"
+  },
+  "areaServed": "Lakeland, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coating in Lakeland, FL</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Situated in Polk County along the I-4 corridor between Tampa and
+            Orlando, Lakeland is one of the Central Florida communities we
+            travel to regularly. We install epoxy and polyaspartic garage
+            floor coatings built to handle the same Florida heat and humidity
+            Lakeland homeowners deal with year-round.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Why Lakeland Homeowners Choose Us</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-geo-alt-fill", "title": "Serving Lakeland & Polk County", "text": "We regularly travel to Lakeland for garage floor coating installations and estimates."},
+          {"icon": "bi-shield-check", "title": "Built for Florida Garages", "text": "Coatings designed to handle Florida humidity, heat, and daily driveway-to-garage traffic."},
+          {"icon": "bi-clock-history", "title": "Fast Turnaround", "text": "Most Lakeland garages are coated and ready to use in as little as a day."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every installation, anywhere in Lakeland, is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Get a Free Estimate in Lakeland", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Lakeland Garage Flooring FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "Do you serve homeowners in Lakeland?", "answer": "Yes — we regularly install garage floor coatings for homeowners throughout Lakeland and Polk County."},
+          {"question": "How quickly can you install a garage floor coating in Lakeland?", "answer": "Most Lakeland garages are turned around in about a day; scheduling is coordinated around our Lakeland service visits."},
+          {"question": "Do you offer free estimates in Lakeland?", "answer": "Yes. We offer free, no-obligation estimates for Lakeland homeowners."},
+          {"question": "What garage floor coating options are available?", "answer": "We install epoxy and polyaspartic concrete coating systems for Lakeland homeowners, both backed by a lifetime warranty."}
+        ], id_prefix="lakelandFaq") }}
+      </div>
+    </section>
+
+    {{ components.related_links("Explore Our Services", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring"},
+      {"href": "/services/concrete-coating/", "label": "Concrete Coating"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

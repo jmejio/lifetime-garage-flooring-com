@@ -1,0 +1,20 @@
+{
+  "title": "Garage Floor Coating in Orlando, FL | Lifetime Garage Flooring",
+  "description": "Lifetime Garage Flooring installs durable epoxy and polyaspartic garage floor coatings for homeowners in Orlando, FL, along the I-4 corridor in Central Florida.",
+  "canonical_path": "/locations/orlando/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.8,
+  "sitemap_changefreq": "monthly",
+  "page_type": "location",
+  "primary_keyword": "garage floor coating Orlando FL",
+  "secondary_keywords": ["epoxy flooring Orlando FL", "concrete coating Orlando FL", "garage floor coating Orange County FL"],
+  "schema_type": "LocalBusiness",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Locations", "path": "/locations/"},
+    {"label": "Orlando", "path": "/locations/orlando/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}

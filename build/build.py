@@ -47,7 +47,10 @@ def load_pages():
 
 def build_pages_lookup(pages):
     return {
-        slug: {"title": meta["title"], "canonical_path": meta["canonical_path"], "page_type": meta["page_type"]}
+        slug: {
+            "title": meta["title"], "canonical_path": meta["canonical_path"],
+            "page_type": meta["page_type"], "description": meta["description"],
+        }
         for slug, meta in pages
     }
 

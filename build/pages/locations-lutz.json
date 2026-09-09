@@ -1,0 +1,20 @@
+{
+  "title": "Garage Floor Coating in Lutz, FL | Lifetime Garage Flooring",
+  "description": "Lifetime Garage Flooring is headquartered in Lutz, FL, installing durable epoxy and polyaspartic garage floor coatings for homeowners in our hometown and across the Tampa Bay area.",
+  "canonical_path": "/locations/lutz/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.8,
+  "sitemap_changefreq": "monthly",
+  "page_type": "location",
+  "primary_keyword": "garage floor coating Lutz FL",
+  "secondary_keywords": ["epoxy flooring Lutz FL", "concrete coating Lutz FL", "garage floor coating near me"],
+  "schema_type": "LocalBusiness",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Locations", "path": "/locations/"},
+    {"label": "Lutz", "path": "/locations/lutz/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}

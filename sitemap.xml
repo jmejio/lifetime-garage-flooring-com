@@ -6,12 +6,47 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lifetimegarageflooring.com/services/concrete-coating/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.lifetimegarageflooring.com/services/epoxy-flooring/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.lifetimegarageflooring.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/lakeland/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/lutz/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/orlando/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/st-petersburg/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lifetimegarageflooring.com/locations/tampa/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

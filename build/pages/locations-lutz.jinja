@@ -1,0 +1,82 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lifetime Garage Flooring - Lutz, FL",
+  "image": "{{ og_image }}",
+  "telephone": "+18132134050",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21107 Leonard Dr.",
+    "addressLocality": "Lutz",
+    "addressRegion": "FL",
+    "postalCode": "33558",
+    "addressCountry": "US"
+  },
+  "areaServed": "Lutz, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coating in Lutz, FL</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Lutz is our hometown — Lifetime Garage Flooring is headquartered right
+            here, on Leonard Dr. As a lake-dotted community along the
+            Hillsborough–Pasco county line just north of Tampa, Lutz homeowners
+            deal with the same Florida heat and humidity as the rest of the
+            region, and our epoxy and polyaspartic coatings are built to handle it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Why Lutz Homeowners Choose Us</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-geo-alt-fill", "title": "Local & Nearby", "text": "Headquartered right here in Lutz, FL — fast scheduling and no long drive for your estimate or installation."},
+          {"icon": "bi-shield-check", "title": "Built for Florida Garages", "text": "Coatings designed to handle Florida humidity, heat, and daily driveway-to-garage traffic."},
+          {"icon": "bi-clock-history", "title": "Fast Turnaround", "text": "Most Lutz garages are coated and ready to use in as little as a day."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every installation, anywhere in Lutz, is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Get a Free Estimate in Lutz", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Lutz Garage Flooring FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "Do you offer free estimates in Lutz, FL?", "answer": "Yes — since we're headquartered in Lutz, in-person estimates here are quick to schedule."},
+          {"question": "How quickly can you install a garage floor coating in Lutz?", "answer": "Most Lutz garages are turned around in about a day, and because we're local, scheduling is usually faster than in farther-out service areas."},
+          {"question": "Do you serve homes outside of Lutz too?", "answer": "Yes. While Lutz is our hometown, we serve homeowners throughout the Tampa Bay area, including Tampa, St. Petersburg, Lakeland, and Orlando."},
+          {"question": "What garage floor coating options are available?", "answer": "We install epoxy and polyaspartic concrete coating systems for Lutz homeowners, both backed by a lifetime warranty."}
+        ], id_prefix="lutzFaq") }}
+      </div>
+    </section>
+
+    {{ components.related_links("Explore Our Services", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring"},
+      {"href": "/services/concrete-coating/", "label": "Concrete Coating"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

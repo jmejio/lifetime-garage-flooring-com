@@ -1,0 +1,82 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lifetime Garage Flooring - Tampa, FL",
+  "image": "{{ og_image }}",
+  "telephone": "+18132134050",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21107 Leonard Dr.",
+    "addressLocality": "Lutz",
+    "addressRegion": "FL",
+    "postalCode": "33558",
+    "addressCountry": "US"
+  },
+  "areaServed": "Tampa, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coating in Tampa, FL</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Just a short drive from our Lutz headquarters, Tampa is one of the
+            largest cities we serve. From South Tampa and Seminole Heights to
+            Westchase and New Tampa, we install epoxy and polyaspartic garage
+            floor coatings built to handle Florida's heat, humidity, and
+            everyday garage traffic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Why Tampa Homeowners Choose Us</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-geo-alt-fill", "title": "Serving All of Tampa", "text": "From South Tampa to New Tampa, we install garage floor coatings across the city."},
+          {"icon": "bi-shield-check", "title": "Built for Florida Garages", "text": "Coatings designed to handle Florida humidity, heat, and daily driveway-to-garage traffic."},
+          {"icon": "bi-clock-history", "title": "Fast Turnaround", "text": "Most Tampa garages are coated and ready to use in as little as a day."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every installation, anywhere in Tampa, is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Get a Free Estimate in Tampa", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Tampa Garage Flooring FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "Do you serve all Tampa neighborhoods?", "answer": "Yes — we install garage floor coatings throughout Tampa, including South Tampa, Westchase, New Tampa, and Seminole Heights."},
+          {"question": "How quickly can you install a garage floor coating in Tampa?", "answer": "Most Tampa garages are turned around in about a day, with scheduling based on your location within the city."},
+          {"question": "Do you offer free estimates in Tampa?", "answer": "Yes. We offer free, no-obligation estimates for Tampa homeowners."},
+          {"question": "What garage floor coating options are available?", "answer": "We install epoxy and polyaspartic concrete coating systems for Tampa homeowners, both backed by a lifetime warranty."}
+        ], id_prefix="tampaFaq") }}
+      </div>
+    </section>
+
+    {{ components.related_links("Explore Our Services", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring"},
+      {"href": "/services/concrete-coating/", "label": "Concrete Coating"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

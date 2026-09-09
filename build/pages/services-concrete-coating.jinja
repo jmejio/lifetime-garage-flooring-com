@@ -1,0 +1,100 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Concrete Coating (Polyaspartic)",
+  "serviceType": "Concrete Floor Coating",
+  "description": "Professional polyaspartic concrete coating installation for residential garage floors across the Tampa Bay area.",
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Lifetime Garage Flooring",
+    "telephone": "+18132134050",
+    "url": "{{ site_base_url }}/"
+  },
+  "areaServed": "Tampa Bay area, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Concrete Coating for Garage Floors in Tampa Bay</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            "Concrete coating" covers any protective floor system applied over a
+            garage slab. For most Tampa Bay homeowners, Lifetime Garage Flooring
+            installs a professional-grade <strong>polyaspartic</strong> coating —
+            a fast-curing, UV-stable system that resists fading and holds up to
+            daily garage use better than standard epoxy alone.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Benefits of Polyaspartic Concrete Coating</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-lightning-charge", "title": "Fast Cure Time", "text": "Polyaspartic coatings cure in hours, not days, so your garage is back in use fast."},
+          {"icon": "bi-sun", "title": "UV-Stable Finish", "text": "Won't yellow or fade in direct sunlight, unlike many epoxy-only systems."},
+          {"icon": "bi-shield-check", "title": "Durable & Impact-Resistant", "text": "Withstands hot tires, dropped tools, and daily garage wear."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every concrete coating installation is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    <section class="py-5" id="process">
+      <div class="container text-center">
+        <h2 class="fw-bold">Our Concrete Coating Process</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.process_steps([
+          {"title": "Concrete Prep", "text": "We grind and repair the existing concrete to create a clean, sound surface for the coating to bond to."},
+          {"title": "Polyaspartic Base Coat", "text": "A professional-grade polyaspartic system is applied for a durable, fast-curing bond."},
+          {"title": "Decorative Flake (Optional)", "text": "Choose from custom color flake blends for a showroom-quality finish."},
+          {"title": "Fast-Cure Topcoat", "text": "A UV-stable topcoat seals the system — most garages are ready to use the same day."}
+        ]) }}
+      </div>
+    </section>
+
+    <section class="bg-light py-5">
+      <div class="container" style="max-width:700px;">
+        {{ components.testimonial_quote(
+          "Polyaspartic coatings cure fast, but we never rush the prep underneath it. That's the difference between a floor that looks good on day one and one that still looks good years later.",
+          "Lifetime Garage Flooring"
+        ) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Ready to Upgrade Your Garage Floor?", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Concrete Coating FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "What is concrete coating?", "answer": "Concrete coating is a general term for any protective, decorative system applied over a concrete slab. We install professional-grade polyaspartic coatings, which cure faster and resist UV fading better than standard epoxy alone."},
+          {"question": "What's the difference between concrete coating and epoxy?", "answer": "Epoxy is one type of concrete coating. Polyaspartic, the system we use most often, is a specific concrete coating that cures much faster and won't yellow in sunlight the way standard epoxy can."},
+          {"question": "How long does polyaspartic take to install?", "answer": "Most residential garages are coated and usable in about a day, often faster than a comparable epoxy-only system."},
+          {"question": "Do you serve homeowners outside of Lutz?", "answer": "Yes. We're headquartered in Lutz, FL and proudly serve homeowners throughout the Tampa Bay area."}
+        ], id_prefix="concreteFaq") }}
+      </div>
+    </section>
+
+    {{ components.related_links("Explore Our Other Services", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

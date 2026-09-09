@@ -1,0 +1,20 @@
+{
+  "title": "Garage Floor Coating in St. Petersburg, FL | Lifetime Garage Flooring",
+  "description": "Lifetime Garage Flooring installs durable epoxy and polyaspartic garage floor coatings for homeowners across St. Petersburg, FL, on the Pinellas side of Tampa Bay.",
+  "canonical_path": "/locations/st-petersburg/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.8,
+  "sitemap_changefreq": "monthly",
+  "page_type": "location",
+  "primary_keyword": "garage floor coating St. Petersburg FL",
+  "secondary_keywords": ["epoxy flooring St. Petersburg FL", "concrete coating St. Petersburg FL", "garage floor coating Pinellas County"],
+  "schema_type": "LocalBusiness",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Locations", "path": "/locations/"},
+    {"label": "St. Petersburg", "path": "/locations/st-petersburg/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}

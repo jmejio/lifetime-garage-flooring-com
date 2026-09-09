@@ -1,0 +1,82 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lifetime Garage Flooring - St. Petersburg, FL",
+  "image": "{{ og_image }}",
+  "telephone": "+18132134050",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21107 Leonard Dr.",
+    "addressLocality": "Lutz",
+    "addressRegion": "FL",
+    "postalCode": "33558",
+    "addressCountry": "US"
+  },
+  "areaServed": "St. Petersburg, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coating in St. Petersburg, FL</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            On the Pinellas side of Tampa Bay, St. Petersburg homeowners face the
+            same coastal heat, humidity, and afternoon storms as the rest of the
+            region. From Downtown and the Old Northeast to Snell Isle and Shore
+            Acres, we install epoxy and polyaspartic garage floor coatings built
+            to hold up to it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Why St. Petersburg Homeowners Choose Us</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-geo-alt-fill", "title": "Serving All of St. Petersburg", "text": "From Downtown to Shore Acres, we install garage floor coatings across the city."},
+          {"icon": "bi-shield-check", "title": "Built for Coastal Conditions", "text": "Coatings designed to handle Gulf Coast humidity, heat, and daily garage traffic."},
+          {"icon": "bi-clock-history", "title": "Fast Turnaround", "text": "Most St. Petersburg garages are coated and ready to use in as little as a day."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every installation, anywhere in St. Petersburg, is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Get a Free Estimate in St. Petersburg", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">St. Petersburg Garage Flooring FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "Do you serve all of St. Petersburg?", "answer": "Yes — we install garage floor coatings throughout St. Petersburg, including Downtown, the Old Northeast, Snell Isle, and Shore Acres."},
+          {"question": "How quickly can you install a garage floor coating in St. Petersburg?", "answer": "Most St. Petersburg garages are turned around in about a day, with scheduling based on your location within the city."},
+          {"question": "Do you offer free estimates in St. Petersburg?", "answer": "Yes. We offer free, no-obligation estimates for St. Petersburg homeowners."},
+          {"question": "What garage floor coating options are available?", "answer": "We install epoxy and polyaspartic concrete coating systems for St. Petersburg homeowners, both backed by a lifetime warranty."}
+        ], id_prefix="stPeteFaq") }}
+      </div>
+    </section>
+
+    {{ components.related_links("Explore Our Services", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring"},
+      {"href": "/services/concrete-coating/", "label": "Concrete Coating"}
+    ]) }}
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

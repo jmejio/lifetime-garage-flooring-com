@@ -1,0 +1,20 @@
+{
+  "title": "Garage Floor Coating in Lakeland, FL | Lifetime Garage Flooring",
+  "description": "Lifetime Garage Flooring installs durable epoxy and polyaspartic garage floor coatings for homeowners in Lakeland, FL, along the I-4 corridor between Tampa and Orlando.",
+  "canonical_path": "/locations/lakeland/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.8,
+  "sitemap_changefreq": "monthly",
+  "page_type": "location",
+  "primary_keyword": "garage floor coating Lakeland FL",
+  "secondary_keywords": ["epoxy flooring Lakeland FL", "concrete coating Lakeland FL", "garage floor coating Polk County"],
+  "schema_type": "LocalBusiness",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Locations", "path": "/locations/"},
+    {"label": "Lakeland", "path": "/locations/lakeland/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}

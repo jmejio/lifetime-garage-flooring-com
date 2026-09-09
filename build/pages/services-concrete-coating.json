@@ -1,0 +1,20 @@
+{
+  "title": "Concrete Coating for Garage Floors | Lifetime Garage Flooring",
+  "description": "Durable polyaspartic concrete coatings for garage floors across the Tampa Bay area. Fast-curing, UV-stable finishes ready to use in about a day. Get a free estimate.",
+  "canonical_path": "/services/concrete-coating/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/polyaspartic-coating.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.9,
+  "sitemap_changefreq": "monthly",
+  "page_type": "service",
+  "primary_keyword": "concrete coating",
+  "secondary_keywords": ["polyaspartic garage floor coating", "polyaspartic concrete coating", "concrete coating Tampa Bay"],
+  "schema_type": "Service",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Services", "path": "/index.html#services"},
+    {"label": "Concrete Coating", "path": "/services/concrete-coating/"}
+  ],
+  "related_services": ["services-epoxy-flooring"],
+  "related_locations": []
+}

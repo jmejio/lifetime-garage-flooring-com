@@ -15,6 +15,6 @@
     {"label": "Services", "path": "/index.html#services"},
     {"label": "Epoxy Flooring", "path": "/services/epoxy-flooring/"}
   ],
-  "related_services": [],
+  "related_services": ["services-concrete-coating"],
   "related_locations": []
 }

@@ -1,0 +1,20 @@
+{
+  "title": "Garage Floor Coating in Tampa, FL | Lifetime Garage Flooring",
+  "description": "Lifetime Garage Flooring installs durable epoxy and polyaspartic garage floor coatings for homeowners throughout Tampa, FL, from South Tampa to New Tampa.",
+  "canonical_path": "/locations/tampa/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.8,
+  "sitemap_changefreq": "monthly",
+  "page_type": "location",
+  "primary_keyword": "garage floor coating Tampa FL",
+  "secondary_keywords": ["epoxy flooring Tampa FL", "concrete coating Tampa FL", "garage floor coating South Tampa"],
+  "schema_type": "LocalBusiness",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Locations", "path": "/locations/"},
+    {"label": "Tampa", "path": "/locations/tampa/"}
+  ],
+  "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
+  "related_locations": []
+}
