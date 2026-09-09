@@ -1,0 +1,95 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Epoxy Garage Floor Coating",
+  "serviceType": "Epoxy Garage Floor Coating",
+  "description": "Professional epoxy garage floor coating installation for residential homeowners across the Tampa Bay area.",
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Lifetime Garage Flooring",
+    "telephone": "+18132134050",
+    "url": "{{ site_base_url }}/"
+  },
+  "areaServed": "Tampa Bay area, FL",
+  "url": "{{ canonical_url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold text-primary mb-3">Epoxy Garage Floor Coating in Tampa Bay</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Lifetime Garage Flooring installs professional-grade epoxy garage floor
+            coatings for homeowners across the Tampa Bay area. Our epoxy systems
+            turn a plain concrete slab into a durable, easy-to-clean floor that
+            stands up to daily garage use.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5" id="benefits">
+      <div class="container text-center">
+        <h2 class="fw-bold">Benefits of Epoxy Flooring</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.benefits_grid([
+          {"icon": "bi-shield-check", "title": "Built to Last", "text": "Chemical- and impact-resistant epoxy systems engineered for daily garage use."},
+          {"icon": "bi-stars", "title": "Easy to Clean", "text": "A seamless, non-porous surface that resists stains and wipes clean in minutes."},
+          {"icon": "bi-clock-history", "title": "Fast Turnaround", "text": "Most residential garages are coated and ready to use in as little as a day."},
+          {"icon": "bi-award", "title": "Lifetime Warranty", "text": "Every epoxy installation is backed by our lifetime warranty."}
+        ]) }}
+      </div>
+    </section>
+
+    <section class="py-5" id="process">
+      <div class="container text-center">
+        <h2 class="fw-bold">Our Epoxy Installation Process</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.process_steps([
+          {"title": "Concrete Prep", "text": "We grind and repair the existing concrete to create a clean, sound surface for the coating to bond to."},
+          {"title": "Epoxy Application", "text": "A professional-grade epoxy system is applied in multiple coats for maximum durability."},
+          {"title": "Decorative Flake (Optional)", "text": "Choose from custom color flake blends for a showroom-quality finish."},
+          {"title": "Final Topcoat & Cure", "text": "A protective topcoat seals the system, and your garage is ready to use once cured."}
+        ]) }}
+      </div>
+    </section>
+
+    <section class="bg-light py-5">
+      <div class="container" style="max-width:700px;">
+        {{ components.testimonial_quote(
+          "We stand behind every floor we install with a lifetime warranty, because we don't cut corners on prep or materials — just honest, quality work that holds up to real garage use.",
+          "Lifetime Garage Flooring"
+        ) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact") }}
+
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Epoxy Flooring FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "How long does epoxy garage floor coating take to install?", "answer": "Most residential garages are completed in a single day, with the floor ready for light use within 24-48 hours depending on the product used."},
+          {"question": "Is epoxy flooring durable enough for daily garage use?", "answer": "Yes. Our epoxy systems are chemical- and impact-resistant, built to stand up to vehicles, tools, and everyday wear."},
+          {"question": "How do I clean and maintain an epoxy garage floor?", "answer": "Epoxy creates a seamless, non-porous surface that's easy to sweep and wipe clean, with no special maintenance products required."},
+          {"question": "Do you serve homeowners outside of Lutz?", "answer": "Yes. We're headquartered in Lutz, FL and proudly serve homeowners throughout the Tampa Bay area."}
+        ], id_prefix="epoxyFaq") }}
+      </div>
+    </section>
+
+  </main>
+
+  <div id="contact-form-root"></div>
+{% endblock %}

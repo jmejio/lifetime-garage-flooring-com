@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Marketing site for Lifetime Garage Flooring (a Technifloors brand), a residential garage floor coating contractor in Lutz, FL. Static HTML/CSS/JS, no framework. Pages are regenerated from local Jinja2 templates by a small Python build step before committing (see Commands/Architecture below); GitHub Pages still serves the committed output as-is, with no server-side build.
 
+For step-by-step content-editing procedures (create/update/delete a page, image conventions), see [README.md](README.md) — this file covers architecture and commands, README.md covers the task recipes built on top of it.
+
 ## Hosting
 
 **This repo is hosted on GitHub Pages, serving directly from the `main` branch.** There is no staging environment and no CI/build pipeline — a push (or a merge) to `main` is a production deploy of the live public site, typically live within a minute or two. Treat commits to `main` accordingly:
@@ -20,7 +22,7 @@ Marketing site for Lifetime Garage Flooring (a Technifloors brand), a residentia
 
 There is no build/lint/test *pipeline*; there is one local Python dependency (Jinja2) used only by the page build step below.
 
-- **Local preview**: serve the repo root with any static file server, e.g. `python -m http.server 8000`, then open `http://localhost:8000/index.html`. Opening the HTML files directly (`file://`) also works since there are no server-side dependencies.
+- **Local preview**: serve the repo root with any static file server, e.g. `python -m http.server 8000`, then open `http://localhost:8000/index.html`. Opening the HTML files directly (`file://`) also works since there are no server-side dependencies. Editing a file under `build/` has no effect on what's served until you rebuild (below) — `python build/watch.py` does that automatically on every save; see README.md.
 - **One-time setup**: `pip install -r build/requirements.txt` (installs Jinja2 into your system Python — no virtualenv needed for this single-dependency tool).
 - **Build pages**: `python build/build.py` — regenerates all committed `*.html` files, `sitemap.xml`, and `robots.txt` from `build/templates/` + `build/pages/`. Run after editing anything under `build/`, then commit both the source changes and the regenerated output together.
 - **Verify generated output is in sync**: `python build/build.py --check` — rebuilds in memory and diffs against the committed output; exits non-zero with a diff if anything is stale or was hand-edited. Run before committing any change touching `build/` or a root `*.html` file.
@@ -35,8 +37,8 @@ There is no build/lint/test *pipeline*; there is one local Python dependency (Ji
   - `build/pages/<slug>.json` — per-page metadata: `title`, `description`, `canonical_path`, `og_image`, `is_home`, `sitemap_priority`, `sitemap_changefreq`.
   - `build/pages/<slug>.jinja` — the actual Jinja2 template for that page (`{% extends "base.jinja" %}` + a `content` block). Source files use a `.jinja` extension specifically so they never share a name with the generated `<slug>.html` file at the repo root.
   - `build/build.py` — reads the above with Jinja2 and writes the root `<slug>.html` files, `sitemap.xml`, and `robots.txt`, forcing the correct line endings per file (`*.html` is CRLF, `sitemap.xml`/`robots.txt` are bare LF — an existing repo inconsistency this build preserves rather than "fixes"); supports `--check` for drift detection. Its one dependency (Jinja2) is pinned in `build/requirements.txt`.
-  - **Never hand-edit `index.html`, `about.html`, any other root-level `*.html` file, `sitemap.xml`, or `robots.txt` directly** — they are generated output. Edit `build/templates/` or `build/pages/`, run `python build/build.py`, then commit both together.
-  - To add a new page: create `build/pages/<slug>.json` and `build/pages/<slug>.jinja`, add a nav `<li>` to `build/templates/_header.jinja` if needed, run the build, commit source + generated output together.
+  - `build/watch.py` — dev-only convenience, not part of the deploy: polls `build/` and reruns `build.py` on every `.jinja`/`.json` change, for use with a live-reload static server during editing.
+  - **Never hand-edit `index.html`, `about.html`, any other root-level `*.html` file, `sitemap.xml`, or `robots.txt` directly** — they are generated output. Edit `build/templates/` or `build/pages/`, run `python build/build.py`, then commit both together. Full create/update/delete recipes: [README.md](README.md).
 - `style.css` holds only the overrides layered on top of Bootstrap 5.3.3 and Bootstrap Icons (both loaded from the jsdelivr CDN in `<head>`, not vendored). Layout is otherwise done with Bootstrap utility classes directly in the markup, not custom CSS.
 - `app.js`: sets the footer copyright year and closes the mobile nav collapse on link click or outside click.
 - `contact-form.js`: a self-contained widget that injects the "Request a Free Quote" form into any `<div id="contact-form-root">` via `innerHTML`, and submits to Web3Forms. The `WEB3FORMS_ACCESS_KEY` constant near the top of the file is a public Web3Forms site key — it's meant to be client-visible, not a secret. The form is two-step: step 1 (name/email/phone) is silently POSTed in the background the moment the visitor advances to step 2, so partial leads aren't lost if they abandon before finishing.

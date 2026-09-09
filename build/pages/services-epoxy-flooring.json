@@ -1,0 +1,20 @@
+{
+  "title": "Epoxy Garage Floor Coating in Tampa Bay | Lifetime Garage Flooring",
+  "description": "Professional epoxy garage floor coating for homeowners across the Tampa Bay area. Durable, easy-to-clean floors installed in as little as a day. Get a free estimate.",
+  "canonical_path": "/services/epoxy-flooring/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/epoxy-coating.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.9,
+  "sitemap_changefreq": "monthly",
+  "page_type": "service",
+  "primary_keyword": "epoxy flooring Tampa Bay",
+  "secondary_keywords": ["epoxy garage floor coating", "epoxy garage floor cost", "residential epoxy flooring installation"],
+  "schema_type": "Service",
+  "breadcrumbs": [
+    {"label": "Home", "path": "/"},
+    {"label": "Services", "path": "/index.html#services"},
+    {"label": "Epoxy Flooring", "path": "/services/epoxy-flooring/"}
+  ],
+  "related_services": [],
+  "related_locations": []
+}

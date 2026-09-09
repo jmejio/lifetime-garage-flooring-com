@@ -1,6 +1,7 @@
 import json, sys, difflib
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from path_validator import validate_outputs
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
@@ -22,6 +23,21 @@ env = Environment(
 )
 
 
+# build/pages/<slug>.json schema:
+#   title, description, canonical_path, og_image, is_home,
+#   sitemap_priority, sitemap_changefreq  (original fields)
+#   page_type          "home" | "service" | "location" | "resource" | "project" | "static"
+#   primary_keyword    str   — reasoned SEO target, not measured search-volume data
+#   secondary_keywords list[str]
+#   schema_type        str | null — extra_schema JSON-LD @type for this page (e.g. "Service",
+#                       "LocalBusiness", "Article"), or null when the page adds no extra schema
+#                       beyond the sitewide HomeAndConstructionBusiness block
+#   breadcrumbs        list[{"label": str, "path": str}] | null — null means derive from
+#                       canonical_path segments instead of listing explicitly
+#   related_services   list[str] — slugs into build/pages/
+#   related_locations  list[str] — slugs into build/pages/
+# Project pages (page_type: "project") additionally carry: location, service,
+# square_footage, scope_summary.
 def load_pages():
     for json_path in sorted((BUILD / "pages").glob("*.json")):  # deterministic order
         slug = json_path.stem
@@ -29,14 +45,55 @@ def load_pages():
         yield slug, meta
 
 
-def render_page(slug, meta):
+def build_pages_lookup(pages):
+    return {
+        slug: {"title": meta["title"], "canonical_path": meta["canonical_path"], "page_type": meta["page_type"]}
+        for slug, meta in pages
+    }
+
+
+def _display_title(title):
+    # Page titles are "<Page Name> | Lifetime Garage Flooring"; breadcrumbs
+    # only want the page-specific half.
+    return title.split(" | ")[0]
+
+
+def compute_breadcrumbs(meta, pages):
+    if meta.get("breadcrumbs") is not None:
+        return meta["breadcrumbs"]
+    if meta["canonical_path"] == "/":
+        return []
+    segments = [s for s in meta["canonical_path"].split("/") if s]
+    by_path = {p["canonical_path"]: p["title"] for p in pages.values()}
+    trail = [{"label": "Home", "path": "/"}]
+    running = ""
+    for seg in segments[:-1]:
+        running += "/" + seg
+        title = by_path.get(running) or by_path.get(running + "/")
+        label = _display_title(title) if title else seg.replace("-", " ").title()
+        trail.append({"label": label, "path": running + "/"})
+    trail.append({"label": _display_title(meta["title"]), "path": meta["canonical_path"]})
+    return trail
+
+
+def output_path_for(canonical_path):
+    if canonical_path == "/":
+        return "index.html"
+    path = canonical_path.lstrip("/")
+    if path.endswith("/"):
+        return path + "index.html"
+    return path
+
+
+def render_page(slug, meta, pages):
     template = env.get_template(f"{slug}.jinja")
-    logo_href = "#header" if meta["is_home"] else "index.html"
+    logo_href = "#header" if meta["is_home"] else "/index.html"
     canonical_url = SITE_BASE_URL + meta["canonical_path"]
     rendered = template.render(
         title=meta["title"], description=meta["description"],
         canonical_url=canonical_url, og_image=meta["og_image"],
         logo_href=logo_href, site_base_url=SITE_BASE_URL,
+        pages=pages, breadcrumb_trail=compute_breadcrumbs(meta, pages),
     )
     # Jinja always renders with \n; convert to this output's real line ending.
     return rendered.replace("\n", HTML_NEWLINE)
@@ -62,7 +119,8 @@ def build_robots():
 
 def main():
     pages = list(load_pages())
-    outputs = {f"{slug}.html": render_page(slug, meta) for slug, meta in pages}
+    pages_lookup = build_pages_lookup(pages)
+    outputs = {output_path_for(meta["canonical_path"]): render_page(slug, meta, pages_lookup) for slug, meta in pages}
     outputs["sitemap.xml"] = build_sitemap(pages)
     outputs["robots.txt"] = build_robots()
     check = "--check" in sys.argv
@@ -77,10 +135,17 @@ def main():
                     existing.splitlines(keepends=True), content.splitlines(keepends=True),
                     fromfile=f"committed/{filename}", tofile=f"generated/{filename}")))
         else:
+            target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(content.encode("utf-8"))
             print(f"wrote {filename}")
     if check:
-        sys.exit(1) if drift else print(f"OK: {len(outputs)} file(s) match committed output.")
+        path_failures = validate_outputs(outputs)
+        for filename, offenders in path_failures.items():
+            drift = True
+            print(f"PATH INTEGRITY: {filename} has non-root-relative internal path(s): {offenders}")
+        if drift:
+            sys.exit(1)
+        print(f"OK: {len(outputs)} file(s) match committed output.")
 
 
 if __name__ == "__main__":

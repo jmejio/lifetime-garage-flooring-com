@@ -5,5 +5,12 @@
   "og_image": "https://www.lifetimegarageflooring.com/assets/main-photo-garage-epoxy.jpg",
   "is_home": false,
   "sitemap_priority": 0.8,
-  "sitemap_changefreq": "monthly"
+  "sitemap_changefreq": "monthly",
+  "page_type": "static",
+  "primary_keyword": "about Lifetime Garage Flooring",
+  "secondary_keywords": [],
+  "schema_type": null,
+  "breadcrumbs": null,
+  "related_services": [],
+  "related_locations": []
 }

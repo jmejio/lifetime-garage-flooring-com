@@ -1,0 +1,31 @@
+{% if breadcrumb_trail and breadcrumb_trail|length > 1 %}
+  <nav aria-label="breadcrumb" class="bg-light border-bottom">
+    <div class="container">
+      <ol class="breadcrumb mb-0 py-2 small">
+        {% for crumb in breadcrumb_trail %}
+        {% if loop.last %}
+        <li class="breadcrumb-item active" aria-current="page">{{ crumb.label }}</li>
+        {% else %}
+        <li class="breadcrumb-item"><a href="{{ crumb.path }}">{{ crumb.label }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ol>
+    </div>
+  </nav>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {% for crumb in breadcrumb_trail %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": {{ crumb.label | tojson }},
+        "item": {{ (site_base_url + crumb.path) | tojson }}
+      }{{ "," if not loop.last }}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endif %}

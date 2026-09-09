@@ -1,0 +1,110 @@
+{# Reusable content-section macros for service/location/project/resource pages.
+   Every macro takes simple data-in (lists/dicts of strings) and emits
+   Bootstrap-utility-class markup consistent with the existing site styling —
+   no new custom CSS required. #}
+
+{% macro benefits_grid(items) %}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-start">
+  {% for item in items %}
+  <div class="col">
+    <div class="card h-100 border-0 shadow-sm">
+      <div class="card-body">
+        <i class="bi {{ item.icon }} fs-2 text-gold mb-3"></i>
+        <h3 class="h5 card-title text-primary">{{ item.title }}</h3>
+        <p class="card-text text-muted mb-0">{{ item.text }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro process_steps(steps) %}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 text-center">
+  {% for step in steps %}
+  <div class="col">
+    <div class="d-flex flex-column align-items-center">
+      <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold mb-3" style="width:48px;height:48px;">
+        {{ loop.index }}
+      </div>
+      <h3 class="h6 fw-bold">{{ step.title }}</h3>
+      <p class="text-muted small mb-0">{{ step.text }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro faq_accordion(qa_list, id_prefix="faq") %}
+{% if qa_list %}
+<div class="accordion" id="{{ id_prefix }}Accordion">
+  {% for qa in qa_list %}
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="{{ id_prefix }}Heading{{ loop.index }}">
+      <button class="accordion-button{{ '' if loop.first else ' collapsed' }}" type="button" data-bs-toggle="collapse"
+              data-bs-target="#{{ id_prefix }}Collapse{{ loop.index }}" aria-expanded="{{ 'true' if loop.first else 'false' }}"
+              aria-controls="{{ id_prefix }}Collapse{{ loop.index }}">
+        {{ qa.question }}
+      </button>
+    </h3>
+    <div id="{{ id_prefix }}Collapse{{ loop.index }}" class="accordion-collapse collapse{{ ' show' if loop.first else '' }}"
+         aria-labelledby="{{ id_prefix }}Heading{{ loop.index }}" data-bs-parent="#{{ id_prefix }}Accordion">
+      <div class="accordion-body text-muted">
+        {{ qa.answer }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for qa in qa_list %}
+    {
+      "@type": "Question",
+      "name": {{ qa.question | tojson }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ qa.answer | tojson }}
+      }
+    }{{ "," if not loop.last }}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endmacro %}
+
+{% macro testimonial_quote(text, author) %}
+<blockquote class="border-start border-4 border-primary ps-4 py-2 fst-italic text-muted">
+  <p class="mb-2">&ldquo;{{ text }}&rdquo;</p>
+  <footer class="blockquote-footer text-gold fst-normal fw-semibold">{{ author }}</footer>
+</blockquote>
+{% endmacro %}
+
+{% macro cta_band(text, href, button_label="Get a Free Estimate") %}
+<section class="bg-primary text-white py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3">{{ text }}</h2>
+    <a class="btn btn-light btn-lg" href="{{ href }}">{{ button_label }}</a>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro related_links(title, items) %}
+{% if items %}
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="h4 fw-bold">{{ title }}</h2>
+    <div class="accent-bar mx-auto mb-4"></div>
+    <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      {% for item in items %}
+      <li><a class="btn btn-outline-primary" href="{{ item.href }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
