@@ -44,12 +44,12 @@
           <h2 class="h5 fw-bold">Get In Touch</h2>
           <div class="accent-bar mx-auto mb-3"></div>
 
-          <p class="mb-1"><strong class="text-gold">Address:</strong> 21107 Leonard Dr. Lutz, FL 33558</p>
-          <p class="mb-1"><strong class="text-gold">Phone:</strong> <a href="tel:+18132134050" class="link-light text-decoration-none">(813) 213-4050</a></p>
+          <p class="mb-1"><strong class="text-gold">Address:</strong> {{ business_address.street }} {{ business_address.locality }}, {{ business_address.region }} {{ business_address.postal_code }}</p>
+          <p class="mb-1"><strong class="text-gold">Phone:</strong> <a href="tel:{{ business_phone }}" class="link-light text-decoration-none">{{ business_phone_display }}</a></p>
           <p class="mb-3"><strong class="text-gold">Email:</strong> <a href="mailto:info@technifloors.com" class="link-light text-decoration-none">info@technifloors.com</a></p>
 
           <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
-            <a class="btn btn-light" href="tel:+18132134050"><i class="bi bi-telephone-fill me-1"></i>Call Now</a>
+            <a class="btn btn-light" href="tel:{{ business_phone }}"><i class="bi bi-telephone-fill me-1"></i>Call Now</a>
             <a class="btn btn-outline-light" href="#contact">Free Estimate</a>
           </div>
         </div>

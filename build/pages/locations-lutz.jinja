@@ -1,27 +1,8 @@
 {% extends "base.jinja" %}
-{% import "_components.jinja" as components %}
+{% import "_components.jinja" as components with context %}
 
 {% block extra_schema %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Lifetime Garage Flooring - Lutz, FL",
-  "image": "{{ og_image }}",
-  "telephone": "+18132134050",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "21107 Leonard Dr.",
-    "addressLocality": "Lutz",
-    "addressRegion": "FL",
-    "postalCode": "33558",
-    "addressCountry": "US"
-  },
-  "areaServed": "Lutz, FL",
-  "url": "{{ canonical_url }}"
-}
-</script>
+{{ components.local_business_schema("Lifetime Garage Flooring - Lutz, FL", "Lutz, FL") }}
 {% endblock %}
 
 {% block content %}

@@ -22,9 +22,9 @@
         <div class="col-auto">
           <div class="d-flex flex-column align-items-end gap-2">
             <div class="d-flex align-items-center gap-1 gap-sm-2">
-              <a class="btn btn-outline-primary btn-sm" href="tel:+18132134050" aria-label="Call (813) 213-4050">
+              <a class="btn btn-outline-primary btn-sm" href="tel:{{ business_phone }}" aria-label="Call {{ business_phone_display }}">
                 <i class="bi bi-telephone-fill"></i>
-                <span class="d-none d-sm-inline ms-1">(813) 213-4050</span>
+                <span class="d-none d-sm-inline ms-1">{{ business_phone_display }}</span>
               </a>
               <a class="btn btn-primary btn-sm d-none d-md-inline-flex align-items-center" href="#contact">
                 Get a Free Quote
@@ -36,7 +36,7 @@
               </button>
             </div>
 
-            <nav class="navbar navbar-expand-md p-0">
+            <nav class="navbar navbar-expand-md p-0 position-relative">
               <div class="collapse navbar-collapse justify-content-end" id="navMenu">
                 <ul class="navbar-nav gap-md-3 align-items-end align-items-md-center">
                   <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>

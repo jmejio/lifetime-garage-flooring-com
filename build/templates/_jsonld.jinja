@@ -5,16 +5,16 @@
   "name": "Lifetime Garage Flooring",
   "image": "{{ site_base_url }}/assets/main-photo-garage-epoxy.jpg",
   "url": "{{ site_base_url }}/",
-  "telephone": "+18132134050",
+  "telephone": {{ business_phone | tojson }},
   "email": "info@technifloors.com",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "21107 Leonard Dr.",
-    "addressLocality": "Lutz",
-    "addressRegion": "FL",
-    "postalCode": "33558",
-    "addressCountry": "US"
+    "streetAddress": {{ business_address.street | tojson }},
+    "addressLocality": {{ business_address.locality | tojson }},
+    "addressRegion": {{ business_address.region | tojson }},
+    "postalCode": {{ business_address.postal_code | tojson }},
+    "addressCountry": {{ business_address.country | tojson }}
   },
   "areaServed": "Lutz, FL and surrounding Tampa Bay area",
   "sameAs": [

@@ -6,6 +6,15 @@ from path_validator import validate_outputs
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 SITE_BASE_URL = "https://www.lifetimegarageflooring.com"
+BUSINESS_PHONE = "+18132134050"
+BUSINESS_PHONE_DISPLAY = "(813) 213-4050"
+BUSINESS_ADDRESS = {
+    "street": "21107 Leonard Dr.",
+    "locality": "Lutz",
+    "region": "FL",
+    "postal_code": "33558",
+    "country": "US",
+}
 
 # Line endings are forced explicitly per output file so the build produces
 # byte-identical output regardless of what OS runs it. The committed
@@ -21,6 +30,13 @@ env = Environment(
     lstrip_blocks=True,
     keep_trailing_newline=True,
 )
+# True sitewide constants (identical on every page, unlike canonical_url/og_image/
+# description which vary per page) — set as environment globals so they're available
+# in every template *and* every _components.jinja macro without threading them
+# through render() kwargs or "with context" imports.
+env.globals["business_phone"] = BUSINESS_PHONE
+env.globals["business_phone_display"] = BUSINESS_PHONE_DISPLAY
+env.globals["business_address"] = BUSINESS_ADDRESS
 
 
 # build/pages/<slug>.json schema:

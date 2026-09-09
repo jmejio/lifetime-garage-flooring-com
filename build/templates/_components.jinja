@@ -93,6 +93,80 @@
 </section>
 {% endmacro %}
 
+{# JSON-LD schema macros below read canonical_url/og_image/description from the
+   calling page's render context (imported "with context") and business_phone/
+   business_address from environment globals — callers only need to pass the
+   handful of fields that actually vary per page. #}
+
+{% macro local_business_schema(name, area_served) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": {{ name | tojson }},
+  "image": {{ og_image | tojson }},
+  "telephone": {{ business_phone | tojson }},
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ business_address.street | tojson }},
+    "addressLocality": {{ business_address.locality | tojson }},
+    "addressRegion": {{ business_address.region | tojson }},
+    "postalCode": {{ business_address.postal_code | tojson }},
+    "addressCountry": {{ business_address.country | tojson }}
+  },
+  "areaServed": {{ area_served | tojson }},
+  "url": {{ canonical_url | tojson }}
+}
+</script>
+{%- endmacro %}
+
+{% macro service_schema(name, service_type, description) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ name | tojson }},
+  "serviceType": {{ service_type | tojson }},
+  "description": {{ description | tojson }},
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Lifetime Garage Flooring",
+    "telephone": {{ business_phone | tojson }},
+    "url": {{ (site_base_url ~ "/") | tojson }}
+  },
+  "areaServed": "Tampa Bay area, FL",
+  "url": {{ canonical_url | tojson }}
+}
+</script>
+{%- endmacro %}
+
+{% macro article_schema(headline, date_published) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ headline | tojson }},
+  "description": {{ description | tojson }},
+  "image": {{ og_image | tojson }},
+  "datePublished": {{ date_published | tojson }},
+  "author": {
+    "@type": "Organization",
+    "name": "Lifetime Garage Flooring"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lifetime Garage Flooring",
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ (site_base_url ~ "/assets/logo-with-hero.png") | tojson }}
+    }
+  },
+  "mainEntityOfPage": {{ canonical_url | tojson }}
+}
+</script>
+{%- endmacro %}
+
 {% macro related_links(title, items) %}
 {% if items %}
 <section class="py-5 bg-light">

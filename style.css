@@ -36,6 +36,28 @@ body {
   white-space: nowrap;
 }
 
+/* Below md, the expanding nav menu must not participate in the header's
+   flex/grid flow: its growing height (submenus etc.) was forcing the
+   hamburger button + menu column to wrap onto a new row under the logo.
+   Taking it out of flow keeps the toggle button fixed in place and lets
+   the open menu overlay on top of everything below/beside it (including
+   the logo) instead of pushing layout around. */
+@media (max-width: 767.98px) {
+  #navMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1030;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+}
+
 .text-gold {
   color: #b8860b;
 }
