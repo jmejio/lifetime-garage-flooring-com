@@ -15,6 +15,10 @@ BUSINESS_ADDRESS = {
     "postal_code": "33558",
     "country": "US",
 }
+# Public Web3Forms site key (not a secret — meant to be client-visible). Templated
+# into the contact form's hidden input by components.contact_form(); contact-form.js
+# reads it back from that field rather than duplicating it.
+WEB3FORMS_ACCESS_KEY = "64f5b5ea-04fa-4444-8486-05b3fc29435f"
 
 # Line endings are forced explicitly per output file so the build produces
 # byte-identical output regardless of what OS runs it. The committed
@@ -37,6 +41,7 @@ env = Environment(
 env.globals["business_phone"] = BUSINESS_PHONE
 env.globals["business_phone_display"] = BUSINESS_PHONE_DISPLAY
 env.globals["business_address"] = BUSINESS_ADDRESS
+env.globals["web3forms_access_key"] = WEB3FORMS_ACCESS_KEY
 
 
 # build/pages/<slug>.json schema:

@@ -34,10 +34,10 @@ python build/build.py
 | Footer content | `build/templates/_footer.jinja` |
 | Business info (name, address, phone, hours) for search engines | `build/templates/_jsonld.jinja` |
 | Site-wide layout, `<head>` tags, `extra_schema` block | `build/templates/base.jinja` |
-| Reusable content sections (benefits grid, process steps, FAQ, testimonial, CTA band, related links) | `build/templates/_components.jinja` |
+| Reusable content sections (benefits grid, process steps, FAQ, testimonial, CTA band, related links, contact form) | `build/templates/_components.jinja` |
 | Breadcrumb trail + `BreadcrumbList` schema | `build/templates/_breadcrumbs.jinja` |
 | Colors, spacing, custom styling | `style.css` |
-| Contact form behavior | `contact-form.js` |
+| Contact form behavior (step navigation, Web3Forms submit) | `contact-form.js` |
 | Images/photos | `assets/` |
 
 ## Update existing content
@@ -88,7 +88,7 @@ python build/build.py
        {{ components.cta_band("Ready to Get Started?", "#contact") }}
        {{ components.related_links("Explore Our Services", [{"href": "/services/...", "label": "..."}]) }}
      </main>
-     <div id="contact-form-root"></div>
+     {{ components.contact_form() }}
    {% endblock %}
    ```
    **Every `href`/`src` on the page must be root-relative** (`/assets/...`, `/services/...`, `#contact`), never relative to the current page — pages can render several directories deep, and a page-relative link would resolve against the wrong directory. `build/build.py --check` runs a path-integrity validator that rejects any that aren't.

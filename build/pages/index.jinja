@@ -1,4 +1,5 @@
 {% extends "base.jinja" %}
+{% import "_components.jinja" as components with context %}
 {% block content %}
   <main id="top">
 
@@ -153,5 +154,5 @@
 
   </main>
 
-  <div id="contact-form-root"></div>
+  {{ components.contact_form() }}
 {% endblock %}

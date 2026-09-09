@@ -435,7 +435,77 @@
 
   </main>
 
-  <div id="contact-form-root"></div>
+  <section class="py-5 bg-light" id="contact">
+  <div class="container" style="max-width:420px;">
+    <h2 class="fw-bold text-center">Request a Free Quote</h2>
+    <div class="accent-bar mx-auto mb-4"></div>
+
+    <div id="qfFormWrap">
+      <form id="quoteForm" novalidate>
+        <input type="hidden" name="access_key" value="64f5b5ea-04fa-4444-8486-05b3fc29435f">
+        <input type="hidden" name="subject" value="New Quote Request - Lifetime Garage Flooring">
+        <input type="checkbox" name="botcheck" class="d-none" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div id="qfStep1">
+          <p class="text-muted small mb-3">We offer free estimates on residential garage flooing. Fill out the form below to request your complimentary consultation. </p>
+          <div class="row mb-3 align-items-center">
+            <label for="qfName" class="col-4 col-form-label">Name</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="qfName" name="name" required>
+            </div>
+          </div>
+
+          <div class="row mb-3 align-items-center">
+            <label for="qfEmail" class="col-4 col-form-label">Email</label>
+            <div class="col-8">
+              <input type="email" class="form-control" id="qfEmail" name="email" required>
+            </div>
+          </div>
+
+          <div class="row mb-3 align-items-center">
+            <label for="qfPhone" class="col-4 col-form-label">Phone</label>
+            <div class="col-8">
+              <input type="tel" class="form-control" id="qfPhone" name="phone">
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-lg w-100" id="qfNext">Submit</button>
+        </div>
+
+        <div id="qfStep2" class="d-none">
+          <p class="text-muted small mb-3">One more thing...</p>
+
+          <div class="row mb-3">
+            <label for="qfMessage" class="col-4 col-form-label">Tell us about your garage</label>
+            <div class="col-8">
+              <textarea class="form-control" id="qfMessage" name="message" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <div id="qfStatus" role="status" aria-live="polite" class="mb-3"></div>
+
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary" id="qfBack">Back</button>
+            <button type="submit" class="btn btn-primary btn-lg flex-grow-1" id="qfSubmit">Send Request</button>
+          </div>
+        </div>
+      </form>
+
+      <p class="text-muted small text-center mt-3 mb-0">
+        <i class="bi bi-shield-lock-fill me-1"></i>
+        Your privacy matters to us. Information submitted here is used solely to respond to your quote request and is never sold or shared with third parties.
+      </p>
+    </div>
+
+    <div id="qfThankYou" class="d-none text-center py-4" role="status" aria-live="polite">
+      <i class="bi bi-check-circle-fill text-primary fs-1 mb-3 d-block"></i>
+      <h3 class="h4 fw-bold mb-2">Thank you!</h3>
+      <p class="text-muted mb-0">We got your request and will be in touch shortly. <br>If it's urgent, call us at
+        <a href="tel:+18132134050" class="link-primary text-decoration-none">(813) 213-4050</a>.</p>
+    </div>
+  </div>
+</section>
+
 
   <footer class="bg-dark text-white py-5">
     <div class="container">
