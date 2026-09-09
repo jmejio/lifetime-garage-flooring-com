@@ -41,14 +41,17 @@ body {
    hamburger button + menu column to wrap onto a new row under the logo.
    Taking it out of flow keeps the toggle button fixed in place and lets
    the open menu overlay on top of everything below/beside it (including
-   the logo) instead of pushing layout around. */
+   the logo) instead of pushing layout around. A fixed 90vw width (rather
+   than shrink-to-fit) keeps the panel a consistent, comfortably tappable
+   size regardless of how few items are visible before expanding a
+   submenu. */
 @media (max-width: 767.98px) {
   #navMenu {
     position: absolute;
     top: 100%;
     right: 0;
     z-index: 1030;
-    max-width: calc(100vw - 2rem);
+    width: 80vw;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
     background-color: #fff;
