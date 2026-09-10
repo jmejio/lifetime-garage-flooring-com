@@ -17,5 +17,8 @@
     {"label": "Concrete Coating", "path": "/services/concrete-coating/"}
   ],
   "related_services": ["services-epoxy-flooring"],
-  "related_locations": []
+  "related_locations": [],
+  "related_projects": [],
+  "related_articles": ["resources-epoxy-vs-polyaspartic"],
+  "noindex": false
 }

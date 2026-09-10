@@ -56,11 +56,23 @@ env.globals["web3forms_access_key"] = WEB3FORMS_ACCESS_KEY
 #                       beyond the sitewide HomeAndConstructionBusiness block
 #   breadcrumbs        list[{"label": str, "path": str}] | null — null means derive from
 #                       canonical_path segments instead of listing explicitly
-#   related_services   list[str] — slugs into build/pages/
-#   related_locations  list[str] — slugs into build/pages/
+#   related_services   list[str] — slugs into build/pages/. Resolved via resolve_related()
+#                       into the page's rendered "related services" section — this is the
+#                       live source of that content, not descriptive-only metadata. An
+#                       unresolvable slug fails the build.
+#   related_locations  list[str] — slugs into build/pages/. Same resolve_related()
+#                       treatment as related_services above.
+#   related_projects   list[str] — slugs into build/pages/, same resolve_related()
+#                       treatment. Currently populated on service/location pages only.
+#   related_articles   list[str] — slugs into build/pages/, same resolve_related()
+#                       treatment. Currently populated on service/location pages only.
 #   nav_label          str | omitted — short display text for nav dropdowns/footer link
 #                       columns (e.g. "Lutz" instead of the full page title); falls back to
 #                       the title's pre-" | " segment when omitted
+#   noindex            bool — when true, emits <meta name="robots" content="noindex, follow">
+#                       and excludes the page from sitemap.xml. robots.txt is unaffected —
+#                       noindex is enforced via the meta tag only, not a Disallow rule, so
+#                       crawlers can still fetch the page and read the tag.
 # Project pages (page_type: "project") additionally carry: location, service,
 # square_footage, scope_summary.
 def load_pages():
@@ -107,6 +119,22 @@ def compute_breadcrumbs(meta, pages):
     return trail
 
 
+def resolve_related(slugs, pages, referencing_slug):
+    # Turns a list of build/pages/ slugs (from a related_* metadata field) into the
+    # {href, label} dicts components.related_links() expects, so those fields are the
+    # actual source of rendered related-content sections rather than descriptive-only
+    # metadata duplicated by hand in each page's template.
+    resolved = []
+    for s in slugs:
+        if s not in pages:
+            raise ValueError(
+                f"{referencing_slug}.json: related-content slug '{s}' does not match "
+                f"any page in build/pages/"
+            )
+        resolved.append({"href": pages[s]["canonical_path"], "label": pages[s]["nav_label"]})
+    return resolved
+
+
 def output_path_for(canonical_path):
     if canonical_path == "/":
         return "index.html"
@@ -125,13 +153,20 @@ def render_page(slug, meta, pages):
         canonical_url=canonical_url, og_image=meta["og_image"],
         logo_href=logo_href, site_base_url=SITE_BASE_URL,
         pages=pages, breadcrumb_trail=compute_breadcrumbs(meta, pages),
+        noindex=meta.get("noindex", False),
+        og_type="article" if meta.get("schema_type") == "Article" else "website",
+        related_services=resolve_related(meta.get("related_services", []), pages, slug),
+        related_locations=resolve_related(meta.get("related_locations", []), pages, slug),
+        related_projects=resolve_related(meta.get("related_projects", []), pages, slug),
+        related_articles=resolve_related(meta.get("related_articles", []), pages, slug),
     )
     # Jinja always renders with \n; convert to this output's real line ending.
     return rendered.replace("\n", HTML_NEWLINE)
 
 
 def build_sitemap(pages):
-    ordered = sorted(pages, key=lambda p: (-p[1]["sitemap_priority"], p[0]))
+    indexable = [p for p in pages if not p[1].get("noindex", False)]
+    ordered = sorted(indexable, key=lambda p: (-p[1]["sitemap_priority"], p[0]))
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for slug, meta in ordered:

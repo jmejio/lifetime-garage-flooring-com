@@ -73,14 +73,9 @@
       </div>
     </section>
 
-    {{ components.related_links("Explore Our Other Services", [
-      {"href": "/services/concrete-coating/", "label": "Concrete Coating"},
-      {"href": "/resources/epoxy-vs-polyaspartic/", "label": "Epoxy vs. Polyaspartic: Which Is Right for You?"}
-    ]) }}
+    {{ components.related_links("Explore Our Other Services", related_services + related_articles) }}
 
-    {{ components.related_links("See Our Work", [
-      {"href": "/projects/hotel-flake-epoxy-st-petersburg/", "label": "Flake Epoxy Project: St. Petersburg, FL"}
-    ]) }}
+    {{ components.related_links("See Our Work", related_projects) }}
 
   </main>
 

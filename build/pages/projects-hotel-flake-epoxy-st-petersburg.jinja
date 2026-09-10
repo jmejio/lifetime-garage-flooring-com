@@ -60,10 +60,21 @@
 
     {{ components.cta_band("Ready for Floors Built to Last?", "#contact") }}
 
+    <section class="py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Flake Epoxy Project FAQs</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "Why use flake epoxy with an integrated cove base in a commercial kitchen?", "answer": "A cove base carries the flooring material up the wall a few inches at every floor-wall junction, eliminating the hard 90-degree corners where dirt, grease, and moisture would otherwise collect. Combined with a seamless flake epoxy surface, it creates an easy-to-clean system built for high-traffic commercial kitchens."},
+          {"question": "Can this system meet commercial kitchen hygiene requirements?", "answer": "Yes. The seamless, non-porous flake epoxy surface and integrated cove base are designed to hold up to frequent washdowns and strict cleaning protocols without grout lines or seams for bacteria and debris to hide in."},
+          {"question": "How durable is flake epoxy flooring in a high-traffic commercial space?", "answer": "Flake epoxy systems are chemical- and impact-resistant, built to withstand constant foot traffic, dropped equipment, and daily commercial use. Like our residential installations, commercial flake epoxy projects are backed by our lifetime warranty."}
+        ], id_prefix="projectFaq") }}
+      </div>
+    </section>
+
     {{ components.related_links("Learn More", [
-      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring Services"},
-      {"href": "/locations/st-petersburg/", "label": "St. Petersburg Location"}
-    ]) }}
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring Services"}
+    ] + related_locations) }}
 
   </main>
 

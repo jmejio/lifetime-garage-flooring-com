@@ -12,5 +12,6 @@
   "schema_type": null,
   "breadcrumbs": null,
   "related_services": [],
-  "related_locations": []
+  "related_locations": [],
+  "noindex": false
 }

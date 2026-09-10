@@ -45,76 +45,27 @@
       <div class="container text-center">
         <h2 class="fw-bold">Our Services</h2>
         <div class="accent-bar mx-auto mb-4"></div>
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-start">
-          <div class="col">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="/assets/epoxy-coating.jpg" class="card-img-top" alt="Epoxy garage floor coating" width="768" height="576" loading="lazy">
-              <div class="card-body">
-                <h3 class="h5 card-title text-primary">Epoxy Coatings</h3>
-                <p class="card-text text-muted">Chemical- and impact-resistant epoxy systems built for daily garage use.</p>
-                <a href="/services/epoxy-flooring/" class="small fw-semibold">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="/assets/polyaspartic-coating.jpg" class="card-img-top" alt="Polyaspartic garage floor coating" width="1024" height="768" loading="lazy">
-              <div class="card-body">
-                <h3 class="h5 card-title text-primary">Polyaspartic Coatings</h3>
-                <p class="card-text text-muted">Fast-curing, UV-stable finish — most garages are ready to use in a day.</p>
-                <a href="/services/concrete-coating/" class="small fw-semibold">Learn More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="/assets/decorative-flake.jpg" class="card-img-top" alt="Decorative flake garage floor system" width="570" height="708" loading="lazy">
-              <div class="card-body">
-                <h3 class="h5 card-title text-primary">Decorative Flake Systems</h3>
-                <p class="card-text text-muted">Custom color flake blends for a durable, showroom-quality look.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 border-0 shadow-sm">
-              <img src="/assets/concrete-repair.jpg" class="card-img-top" alt="Garage concrete repair and prep" width="450" height="250" loading="lazy">
-              <div class="card-body">
-                <h3 class="h5 card-title text-primary">Concrete Repair &amp; Prep</h3>
-                <p class="card-text text-muted">Crack repair, grinding, and surface prep for a long-lasting finish.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{ components.photo_cards([
+          {"src": "/assets/epoxy-coating.jpg", "alt": "Epoxy garage floor coating", "width": 768, "height": 576, "title": "Epoxy Coatings", "text": "Chemical- and impact-resistant epoxy systems built for daily garage use.", "href": "/services/epoxy-flooring/"},
+          {"src": "/assets/polyaspartic-coating.jpg", "alt": "Polyaspartic garage floor coating", "width": 1024, "height": 768, "title": "Polyaspartic Coatings", "text": "Fast-curing, UV-stable finish — most garages are ready to use in a day.", "href": "/services/concrete-coating/"},
+          {"src": "/assets/decorative-flake.jpg", "alt": "Decorative flake garage floor system", "width": 570, "height": 708, "title": "Decorative Flake Systems", "text": "Custom color flake blends for a durable, showroom-quality look."},
+          {"src": "/assets/concrete-repair.jpg", "alt": "Garage concrete repair and prep", "width": 450, "height": 250, "title": "Concrete Repair &amp; Prep", "text": "Crack repair, grinding, and surface prep for a long-lasting finish."}
+        ]) }}
       </div>
     </section>
 
     <section class="py-5" id="why-us">
       <div class="container">
-        <div class="row justify-content-center align-items-center g-4 text-center">
-          <div class="col-auto">
-            <img src="/assets/hero-standing.png" alt="Lifetime Garage Flooring mascot" class="img-fluid" style="max-width:130px;" width="207" height="349" loading="lazy">
-          </div>
-          <div class="col-12 col-md-6">
-            <h2 class="fw-bold">Why Choose Us</h2>
-            <div class="accent-bar mx-auto mb-4"></div>
-
-            <ul class="list-unstyled text-start d-inline-block mx-auto" style="max-width:340px;">
-              <li class="d-flex align-items-center gap-2 mb-3">
-                <i class="bi bi-check-circle-fill text-gold"></i>Lifetime warranty on every installation
-              </li>
-              <li class="d-flex align-items-center gap-2 mb-3">
-                <i class="bi bi-check-circle-fill text-gold"></i>Locally owned and operated, headquartered in Lutz, FL. Proudly serving the Tampa Bay area
-              </li>
-              <li class="d-flex align-items-center gap-2 mb-3">
-                <i class="bi bi-check-circle-fill text-gold"></i>Fast turnaround — most garages done in a day
-              </li>
-              <li class="d-flex align-items-center gap-2">
-                <i class="bi bi-check-circle-fill text-gold"></i>Licensed and insured professionals
-              </li>
-            </ul>
-          </div>
-        </div>
+        {{ components.checklist_with_image(
+          "/assets/hero-standing.png", "Lifetime Garage Flooring mascot", 207, 349,
+          [
+            "Lifetime warranty on every installation",
+            "Locally owned and operated, headquartered in Lutz, FL. Proudly serving the Tampa Bay area",
+            "Fast turnaround — most garages done in a day",
+            "Licensed and insured professionals"
+          ],
+          heading="Why Choose Us"
+        ) }}
       </div>
     </section>
 
@@ -122,33 +73,35 @@
       <div class="container" style="max-width:800px;">
         <h2 class="fw-bold text-center">Get Inspired</h2>
         <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.image_carousel("inspirationCarousel", [
+          {"src": "/assets/gallery-1.jpg", "alt": "Finished garage floor project", "width": 768, "height": 576},
+          {"src": "/assets/gallery-2.jpg", "alt": "Finished garage floor project", "width": 768, "height": 960},
+          {"src": "/assets/gallery-3.jpg", "alt": "Finished garage floor project", "width": 768, "height": 576}
+        ]) }}
+      </div>
+    </section>
 
-        <div id="inspirationCarousel" class="carousel slide shadow-sm" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#inspirationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#inspirationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#inspirationCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/assets/gallery-1.jpg" class="d-block w-100 gallery-img" alt="Finished garage floor project" width="768" height="576" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img src="/assets/gallery-2.jpg" class="d-block w-100 gallery-img" alt="Finished garage floor project" width="768" height="960" loading="lazy">
-            </div>
-            <div class="carousel-item">
-              <img src="/assets/gallery-3.jpg" class="d-block w-100 gallery-img" alt="Finished garage floor project" width="768" height="576" loading="lazy">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#inspirationCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#inspirationCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+    <section class="py-5">
+      <div class="container" style="max-width:700px;">
+        {{ components.testimonial_quote(
+          "We stand behind every floor we install with a lifetime warranty, because we don't cut corners on prep or materials — just honest, quality work that holds up to real garage use.",
+          "Lifetime Garage Flooring"
+        ) }}
+      </div>
+    </section>
+
+    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact") }}
+
+    <section class="bg-light py-5" id="faq">
+      <div class="container" style="max-width:800px;">
+        <h2 class="fw-bold text-center">Frequently Asked Questions</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.faq_accordion([
+          {"question": "What areas do you serve?", "answer": "We're headquartered in Lutz, FL and proudly serve homeowners throughout the Tampa Bay area, including Tampa, St. Petersburg, Lakeland, and Orlando."},
+          {"question": "What's the difference between epoxy and polyaspartic coatings?", "answer": "Epoxy offers a thick, durable build with a wide range of decorative flake options, while polyaspartic cures faster and holds up better to UV exposure. We'll help you choose the right system for your garage."},
+          {"question": "How long does installation take?", "answer": "Most residential garages are coated and ready to use in as little as a day, depending on the system and any concrete repair needed."},
+          {"question": "Is your work guaranteed?", "answer": "Yes. Every installation is backed by our lifetime warranty and performed by licensed, insured professionals."}
+        ], id_prefix="homeFaq") }}
       </div>
     </section>
 

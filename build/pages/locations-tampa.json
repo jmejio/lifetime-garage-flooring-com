@@ -17,5 +17,8 @@
     {"label": "Tampa", "path": "/locations/tampa/"}
   ],
   "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
-  "related_locations": []
+  "related_locations": [],
+  "related_projects": [],
+  "related_articles": [],
+  "noindex": false
 }

@@ -17,5 +17,8 @@
     {"label": "Epoxy Flooring", "path": "/services/epoxy-flooring/"}
   ],
   "related_services": ["services-concrete-coating"],
-  "related_locations": []
+  "related_locations": [],
+  "related_projects": ["projects-hotel-flake-epoxy-st-petersburg"],
+  "related_articles": ["resources-epoxy-vs-polyaspartic"],
+  "noindex": false
 }

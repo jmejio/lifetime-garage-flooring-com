@@ -10,6 +10,7 @@
   "primary_keyword": "flake epoxy flooring St. Petersburg FL",
   "secondary_keywords": ["epoxy cove base flooring", "flake epoxy installation Florida"],
   "schema_type": "Article",
+  "nav_label": "Flake Epoxy Project: St. Petersburg, FL",
   "breadcrumbs": [
     {"label": "Home", "path": "/"},
     {"label": "Projects", "path": "/projects/"},
@@ -20,5 +21,6 @@
   "location": "St. Petersburg, FL",
   "service": "Flake Epoxy with Cove Base",
   "square_footage": "1,500",
-  "scope_summary": "Installed a durable flake epoxy system with an integrated cove base across 1,500 sq ft of high-traffic kitchen flooring."
+  "scope_summary": "Installed a durable flake epoxy system with an integrated cove base across 1,500 sq ft of high-traffic kitchen flooring.",
+  "noindex": false
 }

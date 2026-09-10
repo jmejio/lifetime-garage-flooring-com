@@ -10,11 +10,13 @@
   "primary_keyword": "epoxy vs polyaspartic garage floor",
   "secondary_keywords": ["epoxy vs polyaspartic", "polyaspartic vs epoxy garage floor", "best garage floor coating"],
   "schema_type": "Article",
+  "nav_label": "Epoxy vs. Polyaspartic: Which Is Right for You?",
   "breadcrumbs": [
     {"label": "Home", "path": "/"},
     {"label": "Resources", "path": "/resources/"},
     {"label": "Epoxy vs. Polyaspartic", "path": "/resources/epoxy-vs-polyaspartic/"}
   ],
   "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
-  "related_locations": []
+  "related_locations": [],
+  "noindex": false
 }

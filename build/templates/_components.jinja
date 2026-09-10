@@ -1,7 +1,8 @@
 {# Reusable content-section macros for service/location/project/resource pages.
    Every macro takes simple data-in (lists/dicts of strings) and emits
    Bootstrap-utility-class markup consistent with the existing site styling —
-   no new custom CSS required. #}
+   no new custom CSS required. photo_cards, checklist_with_image, and
+   image_carousel are generic enough for any page, not just the homepage. #}
 
 {% macro benefits_grid(items) %}
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-start">
@@ -16,6 +17,71 @@
     </div>
   </div>
   {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro photo_cards(items) %}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-start">
+  {% for item in items %}
+  <div class="col">
+    <div class="card h-100 border-0 shadow-sm">
+      <img src="{{ item.src }}" class="card-img-top" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+      <div class="card-body">
+        <h3 class="h5 card-title text-primary">{{ item.title }}</h3>
+        <p class="card-text text-muted">{{ item.text }}</p>
+        {% if item.href %}
+        <a href="{{ item.href }}" class="small fw-semibold">Learn More <i class="bi bi-arrow-right"></i></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro checklist_with_image(image, alt, width, height, items, heading=none) %}
+<div class="row justify-content-center align-items-center g-4 text-center">
+  <div class="col-auto">
+    <img src="{{ image }}" alt="{{ alt }}" class="img-fluid" style="max-width:130px;" width="{{ width }}" height="{{ height }}" loading="lazy">
+  </div>
+  <div class="col-12 col-md-6">
+    {% if heading %}
+    <h2 class="fw-bold">{{ heading }}</h2>
+    <div class="accent-bar mx-auto mb-4"></div>
+    {% endif %}
+    <ul class="list-unstyled text-start d-inline-block mx-auto" style="max-width:340px;">
+      {% for item in items %}
+      <li class="d-flex align-items-center gap-2{{ '' if loop.last else ' mb-3' }}">
+        <i class="bi bi-check-circle-fill text-gold"></i>{{ item }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro image_carousel(carousel_id, images) %}
+<div id="{{ carousel_id }}" class="carousel slide shadow-sm" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for image in images %}
+    <button type="button" data-bs-target="#{{ carousel_id }}" data-bs-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active" aria-current="true"{% endif %} aria-label="Slide {{ loop.index }}"></button>
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for image in images %}
+    <div class="carousel-item{% if loop.first %} active{% endif %}">
+      <img src="{{ image.src }}" class="d-block w-100 gallery-img" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#{{ carousel_id }}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#{{ carousel_id }}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 {% endmacro %}
 

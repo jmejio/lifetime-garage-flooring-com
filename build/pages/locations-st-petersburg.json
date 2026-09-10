@@ -17,5 +17,8 @@
     {"label": "St. Petersburg", "path": "/locations/st-petersburg/"}
   ],
   "related_services": ["services-epoxy-flooring", "services-concrete-coating"],
-  "related_locations": []
+  "related_locations": [],
+  "related_projects": ["projects-hotel-flake-epoxy-st-petersburg"],
+  "related_articles": [],
+  "noindex": false
 }
