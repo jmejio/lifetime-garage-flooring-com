@@ -8,7 +8,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="container py-5">
+    <section class="container py-5" id="intro">
       <div class="row">
         <div class="col-lg-8">
           <h1 class="display-5 fw-bold text-primary mb-3">Epoxy Garage Floor Coating in Tampa Bay</h1>
@@ -49,7 +49,7 @@
       </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="testimonial">
       <div class="container" style="max-width:700px;">
         {{ components.testimonial_quote(
           "We stand behind every floor we install with a lifetime warranty, because we don't cut corners on prep or materials — just honest, quality work that holds up to real garage use.",
@@ -58,7 +58,7 @@
       </div>
     </section>
 
-    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact") }}
+    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact", section_id="cta-final") }}
 
     <section class="py-5" id="faq">
       <div class="container" style="max-width:800px;">
@@ -73,9 +73,9 @@
       </div>
     </section>
 
-    {{ components.related_links("Explore Our Other Services", related_services + related_articles) }}
+    {{ components.related_links("Explore Our Other Services", related_services + related_articles, section_id="related-services") }}
 
-    {{ components.related_links("See Our Work", related_projects) }}
+    {{ components.related_links("See Our Work", related_projects, section_id="related-projects") }}
 
   </main>
 

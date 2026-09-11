@@ -3,7 +3,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="hero-section d-flex align-items-center">
+    <section class="hero-section d-flex align-items-center" id="hero">
       <div class="container">
         <div class="hero-content">
           <p class="hero-eyebrow mb-2">Durable&nbsp;&nbsp;/&nbsp;&nbsp;Beautiful&nbsp;&nbsp;/&nbsp;&nbsp;Built to Last</p>
@@ -74,7 +74,7 @@
     {% set _ = location_links.append({"href": page.canonical_path, "label": page.nav_label}) %}
     {% endfor %}
     {% set _ = location_links.append({"href": "/locations/", "label": "View All Locations"}) %}
-    {{ components.related_links("Where We Serve", location_links) }}
+    {{ components.related_links("Where We Serve", location_links, section_id="related-locations") }}
 
     <section class="bg-light py-5" id="gallery">
       <div class="container" style="max-width:800px;">
@@ -94,10 +94,10 @@
     {% endfor %}
     {% if project_links %}
     {% set _ = project_links.append({"href": "/projects/", "label": "View All Projects"}) %}
-    {{ components.related_links("Featured Projects", project_links) }}
+    {{ components.related_links("Featured Projects", project_links, section_id="related-projects") }}
     {% endif %}
 
-    <section class="py-5">
+    <section class="py-5" id="testimonial">
       <div class="container" style="max-width:700px;">
         {{ components.testimonial_quote(
           "We stand behind every floor we install with a lifetime warranty, because we don't cut corners on prep or materials — just honest, quality work that holds up to real garage use.",
@@ -106,7 +106,7 @@
       </div>
     </section>
 
-    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact") }}
+    {{ components.cta_band("Ready for a Beautiful, Durable Garage Floor?", "#contact", section_id="cta-final") }}
 
     <section class="bg-light py-5" id="faq">
       <div class="container" style="max-width:800px;">

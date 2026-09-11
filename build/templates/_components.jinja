@@ -150,8 +150,8 @@
 </blockquote>
 {% endmacro %}
 
-{% macro cta_band(text, href, button_label="Get a Free Estimate") %}
-<section class="bg-primary text-white py-5 text-center">
+{% macro cta_band(text, href, button_label="Get a Free Estimate", section_id=none) %}
+<section class="bg-primary text-white py-5 text-center"{% if section_id %} id="{{ section_id }}"{% endif %}>
   <div class="container">
     <h2 class="fw-bold mb-3">{{ text }}</h2>
     <a class="btn btn-light btn-lg" href="{{ href }}">{{ button_label }}</a>
@@ -306,9 +306,9 @@
 </section>
 {% endmacro %}
 
-{% macro related_links(title, items) %}
+{% macro related_links(title, items, section_id=none) %}
 {% if items %}
-<section class="py-5 bg-light">
+<section class="py-5 bg-light"{% if section_id %} id="{{ section_id }}"{% endif %}>
   <div class="container text-center">
     <h2 class="h4 fw-bold">{{ title }}</h2>
     <div class="accent-bar mx-auto mb-4"></div>

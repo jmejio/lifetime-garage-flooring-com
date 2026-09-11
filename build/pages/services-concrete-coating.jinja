@@ -8,7 +8,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="container py-5">
+    <section class="container py-5" id="intro">
       <div class="row">
         <div class="col-lg-8">
           <h1 class="display-5 fw-bold text-primary mb-3">Concrete Coating for Garage Floors in Tampa Bay</h1>
@@ -50,7 +50,7 @@
       </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="testimonial">
       <div class="container" style="max-width:700px;">
         {{ components.testimonial_quote(
           "Polyaspartic coatings cure fast, but we never rush the prep underneath it. That's the difference between a floor that looks good on day one and one that still looks good years later.",
@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    {{ components.cta_band("Ready to Upgrade Your Garage Floor?", "#contact") }}
+    {{ components.cta_band("Ready to Upgrade Your Garage Floor?", "#contact", section_id="cta-final") }}
 
     <section class="py-5" id="faq">
       <div class="container" style="max-width:800px;">
@@ -74,7 +74,7 @@
       </div>
     </section>
 
-    {{ components.related_links("Explore Our Other Services", related_services + related_articles) }}
+    {{ components.related_links("Explore Our Other Services", related_services + related_articles, section_id="related-services") }}
 
   </main>
 

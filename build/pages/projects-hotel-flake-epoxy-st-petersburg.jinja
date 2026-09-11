@@ -8,7 +8,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="container py-5">
+    <section class="container py-5" id="intro">
       <div class="row">
         <div class="col-lg-9">
           <h1 class="display-5 fw-bold text-primary mb-3">Flake Epoxy Flooring with Integrated Cove Base</h1>
@@ -32,7 +32,7 @@
     </section>
 
     <!-- TODO: replace these placeholder images with real before/after project photos once available -->
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="before-after">
       <div class="container">
         <h2 class="fw-bold text-center">Before &amp; After</h2>
         <div class="accent-bar mx-auto mb-4"></div>
@@ -49,7 +49,7 @@
       </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5" id="testimonial">
       <div class="container" style="max-width:700px;">
         {{ components.testimonial_quote(
           "LGF provided an excellent service, we are very happy with the results.",
@@ -58,7 +58,7 @@
       </div>
     </section>
 
-    {{ components.cta_band("Ready for Floors Built to Last?", "#contact") }}
+    {{ components.cta_band("Ready for Floors Built to Last?", "#contact", section_id="cta-final") }}
 
     <section class="py-5" id="faq">
       <div class="container" style="max-width:800px;">
@@ -74,7 +74,7 @@
 
     {{ components.related_links("Learn More", [
       {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring Services"}
-    ] + related_locations) }}
+    ] + related_locations, section_id="related-more-info") }}
 
   </main>
 

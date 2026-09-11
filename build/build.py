@@ -146,7 +146,7 @@ def output_path_for(canonical_path):
 
 def render_page(slug, meta, pages):
     template = env.get_template(f"{slug}.jinja")
-    logo_href = "#header" if meta["is_home"] else "/index.html"
+    logo_href = "#top" if meta["is_home"] else "/index.html#top"
     canonical_url = SITE_BASE_URL + meta["canonical_path"]
     rendered = template.render(
         title=meta["title"], description=meta["description"],

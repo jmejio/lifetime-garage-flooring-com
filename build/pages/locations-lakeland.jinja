@@ -8,7 +8,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="container py-5">
+    <section class="container py-5" id="intro">
       <div class="row">
         <div class="col-lg-8">
           <h1 class="display-5 fw-bold text-primary mb-3">Garage Floor Coating in Lakeland, FL</h1>
@@ -37,7 +37,7 @@
       </div>
     </section>
 
-    {{ components.cta_band("Get a Free Estimate in Lakeland", "#contact") }}
+    {{ components.cta_band("Get a Free Estimate in Lakeland", "#contact", section_id="cta-final") }}
 
     <section class="py-5" id="faq">
       <div class="container" style="max-width:800px;">
@@ -52,7 +52,7 @@
       </div>
     </section>
 
-    {{ components.related_links("Explore Our Services", related_services) }}
+    {{ components.related_links("Explore Our Services", related_services, section_id="related-services") }}
 
   </main>
 

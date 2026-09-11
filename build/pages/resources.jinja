@@ -2,7 +2,7 @@
 {% block content %}
   <main id="top">
 
-    <section class="container py-5">
+    <section class="container py-5" id="intro">
       <div class="row">
         <div class="col-lg-8">
           <h1 class="display-5 fw-bold text-primary mb-3">Resources</h1>
@@ -16,7 +16,7 @@
       </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="resource-list">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 text-start">
           {% for slug, page in pages.items() | sort if page.page_type == "resource" %}
