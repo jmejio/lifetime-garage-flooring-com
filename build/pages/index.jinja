@@ -9,9 +9,9 @@
           <p class="hero-eyebrow mb-2">Durable&nbsp;&nbsp;/&nbsp;&nbsp;Beautiful&nbsp;&nbsp;/&nbsp;&nbsp;Built to Last</p>
           <h1 class="display-4 fw-bold text-white mb-3">Transform Your Garage with <br><span class="text-gold-light">Epoxy Flooring</span></h1>
           <p class="lead hero-subtext mb-4">
-            Get a garage floor that looks amazing, stands up to daily use,
-            and adds lasting value to your home. Proudly serving homeowners
-            across the Tampa Bay area.
+            Get a professional garage floor coating that looks amazing, stands up
+            to daily use, and adds lasting value to your home. Proudly serving
+            homeowners across the Tampa Bay area.
           </p>
 
           <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
@@ -69,6 +69,13 @@
       </div>
     </section>
 
+    {% set location_links = [] %}
+    {% for slug, page in pages.items() | sort if page.page_type == "location" %}
+    {% set _ = location_links.append({"href": page.canonical_path, "label": page.nav_label}) %}
+    {% endfor %}
+    {% set _ = location_links.append({"href": "/locations/", "label": "View All Locations"}) %}
+    {{ components.related_links("Where We Serve", location_links) }}
+
     <section class="bg-light py-5" id="gallery">
       <div class="container" style="max-width:800px;">
         <h2 class="fw-bold text-center">Get Inspired</h2>
@@ -80,6 +87,15 @@
         ]) }}
       </div>
     </section>
+
+    {% set project_links = [] %}
+    {% for slug, page in pages.items() | sort if page.page_type == "project" %}
+    {% set _ = project_links.append({"href": page.canonical_path, "label": page.nav_label}) %}
+    {% endfor %}
+    {% if project_links %}
+    {% set _ = project_links.append({"href": "/projects/", "label": "View All Projects"}) %}
+    {{ components.related_links("Featured Projects", project_links) }}
+    {% endif %}
 
     <section class="py-5">
       <div class="container" style="max-width:700px;">

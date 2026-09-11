@@ -16,7 +16,11 @@
     "postalCode": {{ business_address.postal_code | tojson }},
     "addressCountry": {{ business_address.country | tojson }}
   },
-  "areaServed": "Lutz, FL and surrounding Tampa Bay area",
+  "areaServed": [
+    {% for slug, page in pages.items() | sort if page.page_type == "location" %}
+    {"@type": "City", "name": {{ (page.nav_label ~ ", FL") | tojson }}}{{ "," if not loop.last }}
+    {% endfor %}
+  ],
   "sameAs": [
     "https://www.linkedin.com/company/lifetime-garage-flooring"
   ]
