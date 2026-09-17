@@ -1,0 +1,26 @@
+{
+  "title": "Sample Project 3 | Lifetime Garage Flooring",
+  "description": "Placeholder project used to preview the /projects/ index card layout. Not real client content.",
+  "canonical_path": "/projects/sample-project-3/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/placeholder-project-photo.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.5,
+  "sitemap_changefreq": "monthly",
+  "page_type": "project",
+  "primary_keyword": "placeholder",
+  "secondary_keywords": [],
+  "schema_type": "Article",
+  "nav_label": "Sample Project 3",
+  "breadcrumbs": null,
+  "related_services": [
+    "services-epoxy-flooring"
+  ],
+  "related_locations": [
+    "locations-st-petersburg"
+  ],
+  "location": "St. Petersburg, FL",
+  "service": "Epoxy Flooring Coating",
+  "square_footage": "380",
+  "scope_summary": "Placeholder single-car garage epoxy floor coating, used only to preview the project card layout.",
+  "noindex": true
+}

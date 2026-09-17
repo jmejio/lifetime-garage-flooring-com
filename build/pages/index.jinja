@@ -41,6 +41,24 @@
       </div>
     </section>
 
+    <!-- TODO: replace these placeholder tiles with real client logos (with permission to display each) once available. Add/remove entries freely -- logo_marquee() accepts any number of items. -->
+    <section class="py-5" id="partners">
+      <div class="container text-center">
+        <h2 class="fw-bold">Companies We've Worked With</h2>
+        <div class="accent-bar mx-auto mb-4"></div>
+        {{ components.logo_marquee([
+          {"src": "/assets/sherwin-williams-logo-262x88.png", "alt": "Sherwin-Williams logo", "width": 300, "height": 150},
+          {"src": "/assets/ardex_logo-300x260.webp", "alt": "Ardex", "width": 300, "height": 150},
+          {"src": "/assets/simiron-logo.png", "alt": "Simiron", "width": 300, "height": 150},
+          {"src": "/assets/TF-logo.png", "alt": "TechniFloors", "width": 300, "height": 150},
+          {"src": "/assets/torginol-logo.png", "alt": "Torginol", "width": 300, "height": 150},
+          {"src": "/assets/Sika-logo.webp", "alt": "Sika Epoxy", "width": 300, "height": 150},
+          {"src": "/assets/logo-with-hero.png", "alt": "Lifetime Garage Flooring", "width": 300, "height": 150},
+          {"src": "/assets/fm-logo.png", "alt": "FlooringMaster", "width": 300, "height": 150}
+        ]) }}
+      </div>
+    </section>
+
     <section class="bg-light py-5" id="services">
       <div class="container text-center">
         <h2 class="fw-bold">Our Services</h2>
@@ -72,6 +90,12 @@
     {% set location_links = [] %}
     {% for slug, page in pages.items() | sort if page.page_type == "location" %}
     {% set _ = location_links.append({"href": page.canonical_path, "label": page.nav_label}) %}
+    {% endfor %}
+    {% set nearby_cities = [
+      "Brandon", "Riverview", "Valrico", "Plant City", "Temple Terrace", "Ruskin", "Sun City Center", "Apollo Beach", "Seffner", "Thonotosassa", "Gibsonton", "Wimauma", "Citrus Park", "Carrollwood", "Land O' Lakes", "Wesley Chapel", "New Port Richey", "Port Richey", "Zephyrhills", "Dade City", "Trinity", "Holiday", "Hudson", "Clearwater", "Largo", "Pinellas Park", "Dunedin", "Palm Harbor", "Safety Harbor", "Seminole", "Tarpon Springs", "Oldsmar", "St. Pete Beach", "Treasure Island", "Madeira Beach", "Indian Rocks Beach", "Davenport","Bradenton", "Palmetto", "Ellenton", "Lakewood Ranch", "Sarasota", "Venice", "Brooksville", "Spring Hill"
+    ] %}
+    {% for city in nearby_cities %}
+    {% set _ = location_links.append({"label": city}) %}
     {% endfor %}
     {% set _ = location_links.append({"href": "/locations/", "label": "View All Locations"}) %}
     {{ components.related_links("Where We Serve", location_links, section_id="related-locations") }}

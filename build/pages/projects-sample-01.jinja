@@ -1,0 +1,42 @@
+{% extends "base.jinja" %}
+{% import "_components.jinja" as components with context %}
+
+{% block extra_schema %}
+{{ components.article_schema("Sample Project 1", "2026-09-17") }}
+{% endblock %}
+
+{% block content %}
+  <main id="top">
+
+    <section class="container py-5" id="intro">
+      <div class="row">
+        <div class="col-lg-9">
+          <h1 class="display-5 fw-bold text-primary mb-3">Sample Project 1</h1>
+          <div class="accent-bar mb-4"></div>
+          <p class="lead text-muted">
+            Placeholder project page generated to preview the /projects/ index card layout. Not real client content.
+          </p>
+          <p class="text-muted">
+            Location: Lutz, FL &nbsp;|&nbsp; Scope: 450 sq ft &nbsp;|&nbsp;
+            System: Epoxy Flooring Coating
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO: this is a placeholder project created only to preview card layout -- delete once no longer needed -->
+    {{ components.project_photos([
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"},
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"}
+    ]) }}
+
+    {{ components.cta_band("Ready for Floors Built to Last?", "#contact", section_id="cta-final") }}
+
+    {{ components.related_links("Learn More", [
+      {"href": "/services/epoxy-flooring/", "label": "Epoxy Flooring Coating"}
+    ] + related_locations, section_id="related-more-info") }}
+
+  </main>
+
+  {{ components.contact_form() }}
+{% endblock %}

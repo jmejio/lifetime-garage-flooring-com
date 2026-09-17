@@ -1,0 +1,26 @@
+{
+  "title": "Sample Project 2 | Lifetime Garage Flooring",
+  "description": "Placeholder project used to preview the /projects/ index card layout. Not real client content.",
+  "canonical_path": "/projects/sample-project-2/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/placeholder-project-photo.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.5,
+  "sitemap_changefreq": "monthly",
+  "page_type": "project",
+  "primary_keyword": "placeholder",
+  "secondary_keywords": [],
+  "schema_type": "Article",
+  "nav_label": "Sample Project 2",
+  "breadcrumbs": null,
+  "related_services": [
+    "services-concrete-coating"
+  ],
+  "related_locations": [
+    "locations-tampa"
+  ],
+  "location": "Tampa, FL",
+  "service": "Polyaspartic Concrete Coating",
+  "square_footage": "600",
+  "scope_summary": "Placeholder three-car garage polyaspartic coating, used only to preview the project card layout.",
+  "noindex": true
+}

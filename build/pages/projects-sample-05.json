@@ -1,0 +1,26 @@
+{
+  "title": "Sample Project 5 | Lifetime Garage Flooring",
+  "description": "Placeholder project used to preview the /projects/ index card layout. Not real client content.",
+  "canonical_path": "/projects/sample-project-5/",
+  "og_image": "https://www.lifetimegarageflooring.com/assets/placeholder-project-photo.jpg",
+  "is_home": false,
+  "sitemap_priority": 0.5,
+  "sitemap_changefreq": "monthly",
+  "page_type": "project",
+  "primary_keyword": "placeholder",
+  "secondary_keywords": [],
+  "schema_type": "Article",
+  "nav_label": "Sample Project 5",
+  "breadcrumbs": null,
+  "related_services": [
+    "services-epoxy-flooring"
+  ],
+  "related_locations": [
+    "locations-orlando"
+  ],
+  "location": "Orlando, FL",
+  "service": "Epoxy Flooring Coating",
+  "square_footage": "500",
+  "scope_summary": "Placeholder two-car garage epoxy floor coating, used only to preview the project card layout.",
+  "noindex": true
+}

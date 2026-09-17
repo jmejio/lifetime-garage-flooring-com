@@ -74,7 +74,9 @@ env.globals["web3forms_access_key"] = WEB3FORMS_ACCESS_KEY
 #                       noindex is enforced via the meta tag only, not a Disallow rule, so
 #                       crawlers can still fetch the page and read the tag.
 # Project pages (page_type: "project") additionally carry: location, service,
-# square_footage, scope_summary.
+# square_footage, scope_summary, card_image/card_image_alt/card_image_width/
+# card_image_height (thumbnail shown on the /projects/ index card — defaults to
+# the /assets/placeholder-project-photo.jpg placeholder at 600x400 when omitted).
 def load_pages():
     for json_path in sorted((BUILD / "pages").glob("*.json")):  # deterministic order
         slug = json_path.stem
@@ -89,6 +91,10 @@ def build_pages_lookup(pages):
             "page_type": meta["page_type"], "description": meta["description"],
             "location": meta.get("location"), "service": meta.get("service"),
             "square_footage": meta.get("square_footage"), "scope_summary": meta.get("scope_summary"),
+            "card_image": meta.get("card_image") or "/assets/placeholder-project-photo.jpg",
+            "card_image_alt": meta.get("card_image_alt") or "Project photo coming soon",
+            "card_image_width": meta.get("card_image_width") or 600,
+            "card_image_height": meta.get("card_image_height") or 400,
             "nav_label": meta.get("nav_label") or meta["title"].split(" | ")[0],
         }
         for slug, meta in pages

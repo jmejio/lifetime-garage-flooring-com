@@ -31,23 +31,13 @@
       </div>
     </section>
 
-    <!-- TODO: replace these placeholder images with real before/after project photos once available -->
-    <section class="bg-light py-5" id="before-after">
-      <div class="container">
-        <h2 class="fw-bold text-center">Before &amp; After</h2>
-        <div class="accent-bar mx-auto mb-4"></div>
-        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-          <div class="col text-center">
-            <img src="/assets/placeholder-project-photo.jpg" class="img-fluid rounded shadow-sm mb-2" alt="Project photo coming soon" width="600" height="400" loading="lazy">
-            <p class="fw-semibold text-muted mb-0">Before</p>
-          </div>
-          <div class="col text-center">
-            <img src="/assets/placeholder-project-photo.jpg" class="img-fluid rounded shadow-sm mb-2" alt="Project photo coming soon" width="600" height="400" loading="lazy">
-            <p class="fw-semibold text-muted mb-0">After</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- TODO: replace these placeholder images with real project photos once available -->
+    {{ components.project_photos([
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"},
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"},
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"},
+      {"src": "/assets/placeholder-project-photo.jpg", "alt": "Project photo coming soon"}
+    ]) }}
 
     <section class="py-5" id="testimonial">
       <div class="container" style="max-width:700px;">

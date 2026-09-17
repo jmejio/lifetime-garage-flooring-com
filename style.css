@@ -70,6 +70,41 @@ body {
   object-fit: cover;
 }
 
+.photo-card {
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.photo-card:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.photo-card .card-img-top {
+  transition: transform 0.35s ease;
+}
+
+.photo-card:hover .card-img-top {
+  transform: scale(1.06);
+}
+
+.photo-card-title,
+.photo-card-title a {
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.photo-card:hover .photo-card-title,
+.photo-card:hover .photo-card-title a {
+  color: var(--bs-primary);
+}
+
+.related-links-list li:not(:last-child)::after {
+  content: "\2022";
+  color: #adb5bd;
+  margin-left: 0.5rem;
+}
+
 .gallery-img {
   height: 500px;
   object-fit: cover;
@@ -191,5 +226,50 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: #b8860b;
   color: #ffffff;
+}
+
+/* Generic auto-scrolling logo/image strip (logo_marquee() in
+   _components.jinja). The track renders the item list twice back-to-back
+   and animates exactly -50% (one full copy's width) so the loop point is
+   invisible. */
+.logo-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.logo-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;
+  animation: logo-marquee-scroll 14s linear infinite;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes logo-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.marquee-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 

@@ -24,19 +24,67 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-start">
   {% for item in items %}
   <div class="col">
-    <div class="card h-100 border-0 shadow-sm">
+    <div class="card h-100 border-0 shadow-sm photo-card">
+      {% if item.href %}
+      <a href="{{ item.href }}">
+        <img src="{{ item.src }}" class="card-img-top" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+      </a>
+      {% else %}
       <img src="{{ item.src }}" class="card-img-top" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+      {% endif %}
       <div class="card-body">
-        <h3 class="h5 card-title text-primary">{{ item.title }}</h3>
+        <h3 class="h5 card-title photo-card-title">{% if item.href %}<a href="{{ item.href }}" class="text-decoration-none">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
         <p class="card-text text-muted">{{ item.text }}</p>
-        {% if item.href %}
-        <a href="{{ item.href }}" class="small fw-semibold">Learn More <i class="bi bi-arrow-right"></i></a>
-        {% endif %}
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
+{% endmacro %}
+
+{% macro project_cards(items, empty_message="We're adding real project case studies soon. Check back shortly, or request a free estimate to start yours today.") %}
+<div class="row row-cols-1 row-cols-lg-3 g-4 text-start">
+  {% for item in items %}
+  <div class="col">
+    <div class="card h-100 border-0 shadow-sm photo-card">
+      <a href="{{ item.href }}">
+        <img src="{{ item.src }}" class="card-img-top" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+      </a>
+      <div class="card-body">
+        <h2 class="h5 card-title photo-card-title"><a href="{{ item.href }}" class="text-decoration-none">{{ item.title }}</a></h2>
+        <ul class="list-unstyled small text-muted mb-3">
+          <li><i class="bi bi-geo-alt-fill text-gold me-1"></i>{{ item.location }}</li>
+          <li><i class="bi bi-tools text-gold me-1"></i>{{ item.service }}</li>
+          <li><i class="bi bi-rulers text-gold me-1"></i>{{ item.square_footage }} sq ft</li>
+        </ul>
+        <p class="card-text text-muted mb-0">{{ item.scope_summary }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% if not items %}
+<div class="text-center text-muted py-4">
+  <p class="mb-0">{{ empty_message }}</p>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro project_photos(images, heading="Project Photos", section_id="project-photos", width=400, height=267) %}
+<section class="bg-light py-5" id="{{ section_id }}">
+  <div class="container">
+    <h2 class="fw-bold text-center">{{ heading }}</h2>
+    <div class="accent-bar mx-auto mb-4"></div>
+    <div class="row row-cols-1 row-cols-lg-3 g-4 justify-content-center">
+      {% for image in images %}
+      <div class="col text-center">
+        <img src="{{ image.src }}" class="img-fluid rounded shadow-sm mb-2" alt="{{ image.alt }}" width="{{ width }}" height="{{ height }}" loading="lazy">
+        {% if image.caption %}<p class="fw-semibold text-muted mb-0">{{ image.caption }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endmacro %}
 
 {% macro checklist_with_image(image, alt, width, height, items, heading=none) %}
@@ -82,6 +130,19 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+{% endmacro %}
+
+{% macro logo_marquee(items) %}
+<div class="logo-marquee">
+  <div class="logo-marquee-track">
+    {% for item in items %}
+    <img src="{{ item.src }}" class="marquee-logo" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+    {% endfor %}
+    {% for item in items %}
+    <img src="{{ item.src }}" class="marquee-logo" alt="" aria-hidden="true" width="{{ item.width }}" height="{{ item.height }}" loading="lazy">
+    {% endfor %}
+  </div>
 </div>
 {% endmacro %}
 
@@ -312,9 +373,9 @@
   <div class="container text-center">
     <h2 class="h4 fw-bold">{{ title }}</h2>
     <div class="accent-bar mx-auto mb-4"></div>
-    <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+    <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2 gap-md-3 mb-0 related-links-list">
       {% for item in items %}
-      <li><a class="btn btn-outline-primary" href="{{ item.href }}">{{ item.label }}</a></li>
+      <li>{% if item.href %}<a href="{{ item.href }}" class="text-decoration-none">{{ item.label }}</a>{% else %}<span class="text-muted">{{ item.label }}</span>{% endif %}</li>
       {% endfor %}
     </ul>
   </div>
