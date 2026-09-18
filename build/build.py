@@ -152,12 +152,12 @@ def output_path_for(canonical_path):
 
 def render_page(slug, meta, pages):
     template = env.get_template(f"{slug}.jinja")
-    logo_href = "#top" if meta["is_home"] else "/index.html#top"
     canonical_url = SITE_BASE_URL + meta["canonical_path"]
     rendered = template.render(
         title=meta["title"], description=meta["description"],
         canonical_url=canonical_url, og_image=meta["og_image"],
-        logo_href=logo_href, site_base_url=SITE_BASE_URL,
+        logo_href="/", site_base_url=SITE_BASE_URL,
+        current_path=meta["canonical_path"],
         pages=pages, breadcrumb_trail=compute_breadcrumbs(meta, pages),
         noindex=meta.get("noindex", False),
         og_type="article" if meta.get("schema_type") == "Article" else "website",

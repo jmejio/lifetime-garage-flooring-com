@@ -1,7 +1,7 @@
 {% extends "base.jinja" %}
 {% import "_components.jinja" as components with context %}
 {% block content %}
-  <main id="top">
+  <main>
 
     <section class="hero-section d-flex align-items-center" id="hero">
       <div class="container">
@@ -47,12 +47,13 @@
         <h2 class="fw-bold">Companies We've Worked With</h2>
         <div class="accent-bar mx-auto mb-4"></div>
         {{ components.logo_marquee([
-          {"src": "/assets/sherwin-williams-logo-262x88.png", "alt": "Sherwin-Williams logo", "width": 300, "height": 150},
           {"src": "/assets/ardex_logo-300x260.webp", "alt": "Ardex", "width": 300, "height": 150},
+          {"src": "/assets/sherwin-williams-logo-262x88.png", "alt": "Sherwin-Williams logo", "width": 300, "height": 150},
           {"src": "/assets/simiron-logo.png", "alt": "Simiron", "width": 300, "height": 150},
           {"src": "/assets/TF-logo.png", "alt": "TechniFloors", "width": 300, "height": 150},
           {"src": "/assets/torginol-logo.png", "alt": "Torginol", "width": 300, "height": 150},
           {"src": "/assets/sika-logo.webp", "alt": "Sika Epoxy", "width": 300, "height": 150},
+          {"src": "/assets/sherwin-williams-logo-262x88.png", "alt": "Sherwin-Williams logo", "width": 300, "height": 150},
           {"src": "/assets/logo-with-hero.png", "alt": "Lifetime Garage Flooring", "width": 300, "height": 150},
           {"src": "/assets/fm-logo.png", "alt": "FlooringMaster", "width": 300, "height": 150}
         ]) }}

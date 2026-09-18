@@ -6,7 +6,7 @@
           <div class="accent-bar mx-auto mb-3"></div>
           <ul class="list-unstyled mb-0">
             {% for slug, page in pages.items() | sort if page.page_type == "service" %}
-            <li class="mb-1"><a class="link-light text-decoration-none" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none{% if page.canonical_path == current_path %} fw-bold{% endif %}" {% if page.canonical_path == current_path %}aria-current="page"{% endif %} href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
             {% endfor %}
           </ul>
         </div>
@@ -16,7 +16,7 @@
           <div class="accent-bar mx-auto mb-3"></div>
           <ul class="list-unstyled mb-0">
             {% for slug, page in pages.items() | sort if page.page_type == "location" %}
-            <li class="mb-1"><a class="link-light text-decoration-none" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none{% if page.canonical_path == current_path %} fw-bold{% endif %}" {% if page.canonical_path == current_path %}aria-current="page"{% endif %} href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
             {% endfor %}
           </ul>
         </div>
@@ -25,8 +25,8 @@
           <h2 class="h5 fw-bold">More</h2>
           <div class="accent-bar mx-auto mb-3"></div>
           <ul class="list-unstyled mb-0">
-            <li class="mb-1"><a class="link-light text-decoration-none" href="/projects/">Projects</a></li>
-            <li class="mb-1"><a class="link-light text-decoration-none" href="/resources/">Resources</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none{% if current_path == '/projects/' %} fw-bold{% endif %}" {% if current_path == '/projects/' %}aria-current="page"{% endif %} href="/projects/">Projects</a></li>
+            <li class="mb-1"><a class="link-light text-decoration-none{% if current_path == '/resources/' %} fw-bold{% endif %}" {% if current_path == '/resources/' %}aria-current="page"{% endif %} href="/resources/">Resources</a></li>
           </ul>
         </div>
       </div>

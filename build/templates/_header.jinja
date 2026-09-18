@@ -1,72 +1,83 @@
+  <div class="bg-light border-bottom d-none d-xl-block">
+    <div class="container py-1 text-center">
+      <span class="d-inline-flex align-items-center text-gold fw-semibold small">
+        <i class="bi bi-heart-fill me-2"></i>We offer discounts for Seniors, First Responders, Teachers, and Persons with Disabilities
+      </span>
+    </div>
+  </div>
+
   <header class="sticky-top bg-white shadow-sm border-bottom" id="header">
-    <div class="container py-2">
-      <div class="row align-items-start gy-2">
+    <nav class="navbar navbar-expand-md py-2">
+      <div class="container">
 
-        <!-- Left column: logo -->
-        <div class="col-auto">
-          <a href="{{ logo_href }}" class="navbar-brand d-flex align-items-center mb-0">
-            <img src="/assets/logo-with-hero.png" alt="Lifetime Garage Flooring logo" class="brand-logo me-2" width="141" height="79"
-                 onerror="this.style.display='none'; document.getElementById('brandFallback').classList.remove('d-none');">
-            <span id="brandFallback" class="fw-bold d-none">Lifetime Garage Flooring</span>
-          </a>
-        </div>
+        <a href="{{ logo_href }}" class="navbar-brand d-flex align-items-center mb-0">
+          <img src="/assets/logo-with-hero.png" alt="Lifetime Garage Flooring logo" class="brand-logo me-2" width="141" height="79"
+               onerror="this.style.display='none'; document.getElementById('brandFallback').classList.remove('d-none');">
+          <span id="brandFallback" class="fw-bold d-none">Lifetime Garage Flooring</span>
+        </a>
 
-        <!-- Center column: tagline -->
-        <div class="col d-flex justify-content-center align-items-center pt-3 px-2">
-          <span class="d-none d-xl-inline-flex align-items-center text-gold fw-semibold small text-center" style="max-width:340px;">
-            <i class="bi bi-heart-fill me-2"></i>We offer discounts for Seniors, First Responders, Teachers, and Persons with Disabilities
-          </span>
-        </div>
-
-        <!-- Right column: call-to-action buttons + navigation menu -->
-        <div class="col-auto">
-          <div class="d-flex flex-column align-items-end gap-2">
-            <div class="d-flex align-items-center gap-1 gap-sm-2">
-              <a class="btn btn-outline-primary btn-sm" href="tel:{{ business_phone }}" aria-label="Call {{ business_phone_display }}">
-                <i class="bi bi-telephone-fill"></i>
-                <span class="d-none d-sm-inline ms-1">{{ business_phone_display }}</span>
-              </a>
-              <a class="btn btn-primary btn-sm d-none d-md-inline-flex align-items-center" href="#contact">
-                Get a Free Quote
-              </a>
-
-              <button class="btn btn-outline-primary btn-sm d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-                      aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-5"></i>
-              </button>
-            </div>
-
-            <nav class="navbar navbar-expand-md p-0 position-relative">
-              <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-                <ul class="navbar-nav gap-md-3 align-items-end align-items-md-center">
-                  <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navServicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                    <ul class="dropdown-menu" aria-labelledby="navServicesDropdown">
-                      {% for slug, page in pages.items() | sort if page.page_type == "service" %}
-                      <li><a class="dropdown-item" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navLocationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Locations</a>
-                    <ul class="dropdown-menu" aria-labelledby="navLocationsDropdown">
-                      {% for slug, page in pages.items() | sort if page.page_type == "location" %}
-                      <li><a class="dropdown-item" href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
-                      {% endfor %}
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item fw-semibold" href="/locations/">View All Locations</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/resources/">Resources</a></li>
-                  <li class="nav-item d-md-none"><a class="btn btn-primary btn-sm" href="/index.html#contact">Free Estimate</a></li>
-                </ul>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-md-4 gap-md-3 align-items-md-center">
+            <li class="nav-item">
+              <a class="nav-link{% if current_path == '/about.html' %} active{% endif %}" {% if current_path == '/about.html' %}aria-current="page"{% endif %} href="/about.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle border-0 bg-transparent{% if current_path.startswith('/services/') %} active{% endif %}" id="navServicesDropdown" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Services</button>
+              <div class="dropdown-menu mega-menu" aria-labelledby="navServicesDropdown">
+                <div class="container py-4">
+                  <div class="row g-4 align-items-center">
+                    <div class="col-md-5 col-lg-4 d-none d-md-block">
+                      <img src="/assets/decorative-flake.jpg" alt="Decorative flake garage floor system" class="mega-menu-image" width="570" height="708" loading="lazy">
+                    </div>
+                    <div class="col-12 col-md-7 col-lg-8">
+                      <ul class="mega-menu-list mega-menu-list-single list-unstyled mb-0">
+                        {% for slug, page in pages.items() | sort if page.page_type == "service" %}
+                        <li><a class="mega-menu-link{% if page.canonical_path == current_path %} active{% endif %}" {% if page.canonical_path == current_path %}aria-current="page"{% endif %} href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </nav>
-          </div>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle border-0 bg-transparent{% if current_path.startswith('/locations/') %} active{% endif %}" id="navLocationsDropdown" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Locations</button>
+              <div class="dropdown-menu mega-menu" aria-labelledby="navLocationsDropdown">
+                <div class="container py-4">
+                  <ul class="mega-menu-list list-unstyled mb-0">
+                    {% for slug, page in pages.items() | sort if page.page_type == "location" %}
+                    <li><a class="mega-menu-link{% if page.canonical_path == current_path %} active{% endif %}" {% if page.canonical_path == current_path %}aria-current="page"{% endif %} href="{{ page.canonical_path }}">{{ page.nav_label }}</a></li>
+                    {% endfor %}
+                    <li><a class="mega-menu-link fw-semibold{% if current_path == '/locations/' %} active{% endif %}" href="/locations/">View All Locations</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link{% if current_path == '/projects/' %} active{% endif %}" href="/projects/">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link{% if current_path == '/resources/' %} active{% endif %}" href="/resources/">Resources</a>
+            </li>
+            <li class="nav-item d-md-none mt-3"><a class="btn btn-primary btn-lg w-100" href="/index.html#contact">Get a Free Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="d-flex align-items-center gap-1 gap-sm-2 ms-2">
+          <a class="btn btn-outline-primary btn-sm" href="tel:{{ business_phone }}" aria-label="Call {{ business_phone_display }}">
+            <i class="bi bi-telephone-fill"></i>
+            <span class="d-none d-sm-inline ms-1">{{ business_phone_display }}</span>
+          </a>
+          <a class="btn btn-primary btn-sm d-none d-md-inline-flex align-items-center" href="#contact">
+            Get a Free Quote
+          </a>
+
+          <button class="navbar-toggler p-1 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                  aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
 
       </div>
-    </div>
+    </nav>
   </header>
